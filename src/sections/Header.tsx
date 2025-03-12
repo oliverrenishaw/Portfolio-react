@@ -1,27 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Transition } from '@headlessui/react';
+import { useTheme } from '../themeToggle';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState('dark'); // Default to dark mode
+  const { theme, toggleTheme } = useTheme();
 
-  useEffect(() => {
-    document.documentElement.classList.add('dark');
-  }, []);
-
-  useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-    } else {
-      document.documentElement.classList.add('light');
-      document.documentElement.classList.remove('dark');
-    }
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
 
   const handleLinkClick = () => {
     setIsOpen(false);
