@@ -13,19 +13,19 @@ const App: React.FC = () => {
     <div className="App">
       <Header />
       <div className="pt-16">
-        <section id="hero">
+        <section id="Home">
           <Hero />
         </section>
-        <section id="about">
+        <section id="About">
           <About />
         </section>
-        <section id="projects">
+        <section id="Projects">
           <Projects />
         </section>
-        <section id="skills">
+        <section id="Skills">
           <Skills />
         </section>
-        <section id="contact">
+        <section id="Contact">
           <Contact />
         </section>
         <Footer />
