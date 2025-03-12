@@ -3,6 +3,11 @@ import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
   const text = "I'm  a  Software  Engineer | Web  Developer".split(" ");
+  const socialLinks = [
+    { href: 'https://github.com', src: 'src/assets/github-dark.svg', alt: 'GitHub' },
+    { href: 'https://linkedin.com', src: 'src/assets/linkedin-dark.svg', alt: 'LinkedIn' },
+    { href: 'https://twitter.com', src: 'src/assets/twitter-dark.svg', alt: 'Twitter' },
+  ];
 
   return (
     <section
@@ -10,8 +15,8 @@ const Hero: React.FC = () => {
       style={{ backgroundImage: 'url(src/assets/sunset.jpg)' }}
     >
       <div className="absolute inset-0 bg-[#000000] opacity-50"></div>
-      <h1 className="relative text-[#ffffff] sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Oliver Warner</h1>
-      <h2 className="relative text-[#ffffff] sm:text-xl md:text-2xl lg:text-3xl flex">
+      <h1 className="relative text-[#ffffff] sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-10">Oliver Warner</h1>
+      <h2 className="relative text-[#ffffff] sm:text-xl md:text-2xl lg:text-3xl flex mb-10">
         {text.map((word, i) => (
           <motion.span
             key={i}
@@ -27,6 +32,17 @@ const Hero: React.FC = () => {
           </motion.span>
         ))}
       </h2>
+      <div className="relative flex space-x-4 mt-4">
+        {socialLinks.map((link, i) => (
+          <a key={i} href={link.href} target="_blank" rel="noopener noreferrer">
+            <img
+              src={link.src}
+              alt={link.alt}
+              className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
+            />
+          </a>
+        ))}
+      </div>
     </section>
   );
 };
