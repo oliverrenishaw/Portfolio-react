@@ -29,7 +29,7 @@ const Header: React.FC = () => {
             )}
           </svg>
         </button>
-        <nav className="hidden sm:hidden md:flex bg-[#ff9933] h-12 justify-center items-center space-x-2 sm:space-x-4 p-1 sm:p-2 rounded-[25px]">
+        <nav className="hidden sm:hidden md:flex bg-gradient-to-r from-[#ff9933] to-[#e8a35f] h-12 justify-center items-center space-x-2 sm:space-x-4 p-1 sm:p-2 rounded-[25px]">
           <a href="#hero" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white">Hero</a>
           <a href="#about" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white">About</a>
           <a href="#projects" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white">Projects</a>
@@ -46,12 +46,12 @@ const Header: React.FC = () => {
         leaveFrom="transform translate-y-0 opacity-100"
         leaveTo="transform -translate-y-full opacity-0"
       >
-        <nav className="sm:block md:hidden absolute top-16 left-0 w-full bg-[#ff9933] flex flex-col items-start space-y-2 p-4 rounded-b-[25px]">
-          <a href="#hero" className="nav-link w-full text-left py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white" onClick={handleLinkClick}>Hero</a>
-          <a href="#about" className="nav-link w-full text-left py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white" onClick={handleLinkClick}>About</a>
-          <a href="#projects" className="nav-link w-full text-left py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white" onClick={handleLinkClick}>Projects</a>
-          <a href="#skills" className="nav-link w-full text-left py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white" onClick={handleLinkClick}>Skills</a>
-          <a href="#contact" className="nav-link w-full text-left py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white" onClick={handleLinkClick}>Contact</a>
+        <nav className="sm:block md:hidden absolute top-16 left-0 w-full bg-gradient-to-b from-[#ff9933] to-[#e8a35f] flex flex-col items-start space-y-2 p-4 rounded-b-[25px]">
+          <a href="#hero" className="nav-link w-full text-center py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white" onClick={handleLinkClick}>Hero</a>
+          <a href="#about" className="nav-link w-full text-center py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white" onClick={handleLinkClick}>About</a>
+          <a href="#projects" className="nav-link w-full text-center py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white" onClick={handleLinkClick}>Projects</a>
+          <a href="#skills" className="nav-link w-full text-center py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white" onClick={handleLinkClick}>Skills</a>
+          <a href="#contact" className="nav-link w-full text-center py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white" onClick={handleLinkClick}>Contact</a>
         </nav>
       </Transition>
     </header>
