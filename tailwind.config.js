@@ -18,6 +18,9 @@ export default {
       animation: {
         bounce: 'bounce 1s infinite',
       },
+      fontFamily: {
+        'roboto-slab': ['"Roboto Slab"', 'serif'],
+      },
     },
   },
   plugins: [],

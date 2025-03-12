@@ -55,7 +55,7 @@ const Header: React.FC = () => {
         </nav>
         <button
           onClick={toggleTheme}
-          className="ml-4 focus:outline-none"
+          className="ml-4 focus:outline-none transform transition-transform duration-300 hover:scale-[1.3]"
           aria-label="Toggle Theme"
         >
           {theme === 'dark' ? (
