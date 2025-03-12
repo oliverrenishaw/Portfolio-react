@@ -9,8 +9,14 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 w-full h-16 flex items-center justify-center px-4 z-50" style={{ backgroundColor: 'rgba(16, 33, 43, 1)' }}>
-      <div className="flex items-center justify-between w-full max-w-screen-lg mx-auto">
+    <header
+      className="fixed top-0 w-full h-16 flex items-center justify-center px-4 z-50"
+      style={{
+        backgroundColor: 'rgba(16, 33, 43, 0.8)',
+        backdropFilter: 'blur(20px)'
+      }}
+    >
+      <div className="flex items-center justify-between w-full">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="text-white focus:outline-none sm:block md:hidden"
@@ -29,8 +35,8 @@ const Header: React.FC = () => {
             )}
           </svg>
         </button>
-        <nav className="hidden sm:hidden md:flex bg-gradient-to-r from-[#ff9933] to-[#e8a35f] h-12 justify-center items-center space-x-2 sm:space-x-4 p-1 sm:p-2 rounded-[25px]">
-          <a href="#hero" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white">Hero</a>
+        <nav className="hidden sm:hidden md:flex bg-gradient-to-r from-[#ff9933] to-[#d5914e] h-12 justify-center items-center space-x-2 sm:space-x-4 p-1 sm:p-2 rounded-[25px]">
+          <a href="#hero" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white">Home</a>
           <a href="#about" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white">About</a>
           <a href="#projects" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white">Projects</a>
           <a href="#skills" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white">Skills</a>
@@ -46,8 +52,8 @@ const Header: React.FC = () => {
         leaveFrom="transform translate-y-0 opacity-100"
         leaveTo="transform -translate-y-full opacity-0"
       >
-        <nav className="sm:block md:hidden absolute top-16 left-0 w-full bg-gradient-to-b from-[#ff9933] to-[#e8a35f] flex flex-col items-start space-y-2 p-4 rounded-b-[25px]">
-          <a href="#hero" className="nav-link w-full text-center py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white" onClick={handleLinkClick}>Hero</a>
+        <nav className="sm:block md:hidden fixed top-16 left-0 w-full bg-gradient-to-b from-[#ff9933] to-[#e8a35f] flex flex-col items-start space-y-2 p-4 rounded-b-[25px] z-50">
+          <a href="#hero" className="nav-link w-full text-center py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white" onClick={handleLinkClick}>Home</a>
           <a href="#about" className="nav-link w-full text-center py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white" onClick={handleLinkClick}>About</a>
           <a href="#projects" className="nav-link w-full text-center py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white" onClick={handleLinkClick}>Projects</a>
           <a href="#skills" className="nav-link w-full text-center py-2 hover:bg-black hover:text-white focus:bg-black focus:text-white" onClick={handleLinkClick}>Skills</a>
