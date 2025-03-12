@@ -8,7 +8,7 @@ const Skills: React.FC = () => {
     <section
       className={`w-full h-screen flex items-center justify-center ${theme === 'dark' ? 'bg-[#091218]' : 'bg-[#ffffff]'}`}
     >
-      <h2 className={`text-4xl ${theme === 'dark' ? 'text-[#ffffff]' : 'text-[#000000]'}`}>
+      <h2 className={`text-4xl font-rubik font-bold ${theme === 'dark' ? 'text-[#ffffff]' : 'text-[#000000]'}`}>
         Skills Section
       </h2>
     </section>

@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../themeToggle';
 
-
 const Hero: React.FC = () => {
   const { theme } = useTheme();
   const text = "I'm   a   Software   Engineer  |  Web   Developer".split(" ");
@@ -17,8 +16,8 @@ const Hero: React.FC = () => {
       className="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-center"
       style={{ backgroundImage: `url(src/assets/${theme === 'dark' ? 'sunset.jpg' : 'lake.png'})`, marginTop: '-80px' }}
     >
-    <div className="absolute inset-0 bg-[#ffffff] dark:bg-[#000000] opacity-50"></div>
-      <h1 className="relative text-[#000] dark:text-[#ffffff] sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-10 font-roboto-slab">Oliver Warner</h1>
+      <div className="absolute inset-0 bg-[#ffffff] dark:bg-[#000000] opacity-50"></div>
+      <h1 className="relative text-[#000] dark:text-[#ffffff] sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-10 font-rubik">Oliver Warner</h1>
       <h2 className="relative text-[#000] dark:text-[#ffffff] sm:text-xl md:text-2xl lg:text-3xl flex mb-10">
         {text.map((word, i) => (
           <motion.span
