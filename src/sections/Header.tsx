@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Transition } from '@headlessui/react';
 import { useTheme } from '../themeToggle';
 
@@ -6,21 +6,31 @@ const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
-
   const handleLinkClick = () => {
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('myBar')!.style.width = scrolled + '%';
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header
-      className="fixed top-0 w-full h-16 flex items-center justify-center px-4 z-50">
+    <header className="fixed top-0 w-full h-16 flex items-center justify-center px-4 z-50">
       <div className="flex items-center justify-between w-full">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="text-white focus:outline-none sm:block md:hidden"
         >
           <svg
-            className={`w-6 h-6 transition-transform duration-300 ${isOpen ? 'transform rotate-90' : ''}`}
+            className={`w-8 h-8 transition-transform duration-300 ${isOpen ? 'transform rotate-90' : ''}`}
             fill="none"
             stroke={theme === 'dark' ? 'white' : 'black'}
             viewBox="0 0 24 24"
@@ -33,12 +43,15 @@ const Header: React.FC = () => {
             )}
           </svg>
         </button>
-        <nav className={`hidden sm:hidden md:flex h-12 justify-center items-center space-x-2 sm:space-x-4 p-1 sm:p-2 rounded-[25px] ${theme === 'dark' ? 'bg-gradient-to-r from-[#ff9933] to-[#d5914e]' : 'bg-gradient-to-r from-[#80bbc2] to-[#bbd7e1]'}`}>
+        <nav className={`relative hidden sm:hidden md:flex h-12 justify-center items-center space-x-2 sm:space-x-4 p-1 sm:p-2 rounded-[25px] ${theme === 'dark' ? 'bg-gradient-to-r from-[#ff9933] to-[#d5914e]' : 'bg-gradient-to-r from-[#80bbc2] to-[#bbd7e1]'}`}>
           <a href="#Home" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black">Home</a>
           <a href="#About" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black">About</a>
           <a href="#Projects" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black">Projects</a>
           <a href="#Skills" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black">Skills</a>
           <a href="#Contact" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black">Contact</a>
+          <div className="absolute bottom-0 w-full h-3 left-0 w-[calc(100%-2rem)]">
+            <div id="myBar" className="h-[0.2rem] bg-[#000000] dark:bg-[#ffffff] w-0"></div>
+          </div>
         </nav>
         <button
           onClick={toggleTheme}
@@ -46,9 +59,9 @@ const Header: React.FC = () => {
           aria-label="Toggle Theme"
         >
           {theme === 'dark' ? (
-            <img src="src/assets/sun-white.svg" alt="Light Mode" className="w-10 h-10" />
+            <img src="src/assets/sun-white.svg" alt="Light Mode" className="w-8 h-8 sm:w-10 sm:h-10" />
           ) : (
-            <img src="src/assets/moon-black.png" alt="Dark Mode" className="w-10 h-10" />
+            <img src="src/assets/moon-black.png" alt="Dark Mode" className="w-8 h-8 sm:w-10 sm:h-10" />
           )}
         </button>
       </div>
