@@ -66,9 +66,9 @@ const Header: React.FC = () => {
           aria-label="Toggle Theme"
         >
           {theme === 'dark' ? (
-            <img src="src/assets/sun.svg" alt="Light Mode" className="w-8 h-8" />
+            <img src="src/assets/sun-white.svg" alt="Light Mode" className="w-10 h-10" />
           ) : (
-            <img src="src/assets/moon.svg" alt="Dark Mode" className="w-8 h-8" />
+            <img src="src/assets/moon-black.png" alt="Dark Mode" className="w-10 h-10" />
           )}
         </button>
       </div>
@@ -83,10 +83,10 @@ const Header: React.FC = () => {
       >
         <nav className="sm:block md:hidden fixed top-16 left-0 w-full bg-gradient-to-b from-[#ff9933] to-[#e8a35f] flex flex-col items-start space-y-2 p-4 rounded-b-[25px] z-50">
           <a href="#Home" className="nav-link w-full text-center py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white" onClick={handleLinkClick}>Home</a>
-          <a href="#about" className="nav-link w-full text-center py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white" onClick={handleLinkClick}>About</a>
-          <a href="#projects" className="nav-link w-full text-center py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white" onClick={handleLinkClick}>Projects</a>
-          <a href="#skills" className="nav-link w-full text-center py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white" onClick={handleLinkClick}>Skills</a>
-          <a href="#contact" className="nav-link w-full text-center py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white" onClick={handleLinkClick}>Contact</a>
+          <a href="#About" className="nav-link w-full text-center py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white" onClick={handleLinkClick}>About</a>
+          <a href="#Projects" className="nav-link w-full text-center py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white" onClick={handleLinkClick}>Projects</a>
+          <a href="#Skills" className="nav-link w-full text-center py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white" onClick={handleLinkClick}>Skills</a>
+          <a href="#Contact" className="nav-link w-full text-center py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white" onClick={handleLinkClick}>Contact</a>
         </nav>
       </Transition>
     </header>
