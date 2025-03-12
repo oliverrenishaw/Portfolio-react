@@ -29,11 +29,7 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className="fixed top-0 w-full h-16 flex items-center justify-center px-4 z-50"
-      style={{
-        backdropFilter: 'blur(5px)'
-      }}
-    >
+      className="fixed top-0 w-full h-16 flex items-center justify-center px-4 z-50">
       <div className="flex items-center justify-between w-full">
         <button
           onClick={() => setIsOpen(!isOpen)}
