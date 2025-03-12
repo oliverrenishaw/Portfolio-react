@@ -13,10 +13,6 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    // <section
-    //   className="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-center"
-    //   style={{ backgroundImage: 'url(src/assets/${theme === 'dark' ? 'sunset.jpg' : 'lake.png'})', marginTop: '-80px' }}
-    // >
     <section
       className="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-center"
       style={{ backgroundImage: `url(src/assets/${theme === 'dark' ? 'sunset.jpg' : 'lake.png'})`, marginTop: '-80px' }}

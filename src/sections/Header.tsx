@@ -49,7 +49,7 @@ const Header: React.FC = () => {
           <a href="#Projects" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black">Projects</a>
           <a href="#Skills" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black">Skills</a>
           <a href="#Contact" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black">Contact</a>
-          <div className="absolute bottom-0 w-full h-3 left-0 w-[calc(100%-2rem)]">
+          <div className="absolute bottom-0 h-3 left-0 w-[calc(100%-2rem)]">
             <div id="myBar" className="h-[0.2rem] bg-[#000000] dark:bg-[#ffffff] w-0"></div>
           </div>
         </nav>

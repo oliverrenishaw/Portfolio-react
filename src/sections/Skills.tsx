@@ -6,7 +6,7 @@ const Skills: React.FC = () => {
 
   return (
     <section
-      className={`w-full h-screen flex items-center justify-center ${theme === 'dark' ? 'bg-[#10212b]' : 'bg-[#ffffff]'}`}
+      className={`w-full h-screen flex items-center justify-center ${theme === 'dark' ? 'bg-[#091218]' : 'bg-[#ffffff]'}`}
     >
       <h2 className={`text-4xl ${theme === 'dark' ? 'text-[#ffffff]' : 'text-[#000000]'}`}>
         Skills Section
