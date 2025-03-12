@@ -22,7 +22,7 @@ const Header: React.FC = () => {
           <svg
             className={`w-6 h-6 transition-transform duration-300 ${isOpen ? 'transform rotate-90' : ''}`}
             fill="none"
-            stroke="currentColor"
+            stroke={theme === 'dark' ? 'white' : 'black'}
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -34,11 +34,11 @@ const Header: React.FC = () => {
           </svg>
         </button>
         <nav className="hidden sm:hidden md:flex bg-gradient-to-r from-[#ff9933] to-[#d5914e] h-12 justify-center items-center space-x-2 sm:space-x-4 p-1 sm:p-2 rounded-[25px]">
-          <a href="#Home" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white">Home</a>
-          <a href="#About" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white">About</a>
-          <a href="#Projects" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white">Projects</a>
-          <a href="#Skills" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white">Skills</a>
-          <a href="#Contact" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white">Contact</a>
+          <a href="#Home" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black">Home</a>
+          <a href="#About" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black">About</a>
+          <a href="#Projects" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black">Projects</a>
+          <a href="#Skills" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black">Skills</a>
+          <a href="#Contact" className="nav-link flex items-center justify-center px-1 py-1 sm:px-2 sm:py-1 md:px-4 md:py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black">Contact</a>
         </nav>
         <button
           onClick={toggleTheme}
@@ -62,11 +62,11 @@ const Header: React.FC = () => {
         leaveTo="transform -translate-y-full opacity-0"
       >
         <nav className="sm:block md:hidden fixed top-16 left-0 w-full bg-gradient-to-b from-[#ff9933] to-[#e8a35f] flex flex-col items-start space-y-2 p-4 rounded-b-[25px] z-50">
-          <a href="#Home" className="nav-link w-full text-center py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white" onClick={handleLinkClick}>Home</a>
-          <a href="#About" className="nav-link w-full text-center py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white" onClick={handleLinkClick}>About</a>
-          <a href="#Projects" className="nav-link w-full text-center py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white" onClick={handleLinkClick}>Projects</a>
-          <a href="#Skills" className="nav-link w-full text-center py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white" onClick={handleLinkClick}>Skills</a>
-          <a href="#Contact" className="nav-link w-full text-center py-2 text-white hover:text-black focus:text-black dark:text-black dark:hover:text-white dark:focus:text-white" onClick={handleLinkClick}>Contact</a>
+          <a href="#Home" className="nav-link w-full text-center py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black" onClick={handleLinkClick}>Home</a>
+          <a href="#About" className="nav-link w-full text-center py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black" onClick={handleLinkClick}>About</a>
+          <a href="#Projects" className="nav-link w-full text-center py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black" onClick={handleLinkClick}>Projects</a>
+          <a href="#Skills" className="nav-link w-full text-center py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black" onClick={handleLinkClick}>Skills</a>
+          <a href="#Contact" className="nav-link w-full text-center py-2 text-black hover:text-white focus:text-white dark:text-white dark:hover:text-black dark:focus:text-black" onClick={handleLinkClick}>Contact</a>
         </nav>
       </Transition>
     </header>
