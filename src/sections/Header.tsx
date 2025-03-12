@@ -12,8 +12,8 @@ const Header: React.FC = () => {
     <header
       className="fixed top-0 w-full h-16 flex items-center justify-center px-4 z-50"
       style={{
-        backgroundColor: 'rgba(16, 33, 43, 0.8)',
-        backdropFilter: 'blur(20px)'
+        // backgroundColor: 'rgba(16, 33, 43, 0.8)',
+        backdropFilter: 'blur(5px)'
       }}
     >
       <div className="flex items-center justify-between w-full">

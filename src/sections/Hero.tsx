@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
   return (
     <section
       className="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-center"
-      style={{ backgroundImage: 'url(src/assets/sunset.jpg)' }}
+      style={{ backgroundImage: 'url(src/assets/sunset.jpg)', marginTop: '-80px' }}
     >
       <div className="absolute inset-0 bg-[#000000] opacity-50"></div>
       <h1 className="relative text-[#ffffff] sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-10">Oliver Warner</h1>
