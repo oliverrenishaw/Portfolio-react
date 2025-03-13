@@ -3,6 +3,7 @@ import './App.css';
 import Header from './sections/Header';
 import Hero from './sections/Hero';
 import About from './sections/About';
+import Resume from './sections/Resume';
 import Projects from './sections/Projects';
 import Skills from './sections/Skills';
 import Contact from './sections/Contact';
@@ -18,6 +19,9 @@ const App: React.FC = () => {
         </section>
         <section id="About">
           <About />
+        </section>
+        <section id="Resume">
+          <Resume />
         </section>
         <section id="Projects">
           <Projects />
