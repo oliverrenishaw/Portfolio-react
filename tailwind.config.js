@@ -22,15 +22,6 @@ export default {
         'roboto-slab': ['"Roboto Slab"', 'serif'],
         'rubik': ['"Rubik"', 'sans-serif']
       },
-      keyframes: {
-        borderAnimation: {
-          '0%, 100%': { borderColor: 'white' },
-          '50%': { borderColor: 'gray' },
-        },
-      },
-      animation1: {
-        border: 'borderAnimation 2s infinite',
-      },
     },
   },
   plugins: [],

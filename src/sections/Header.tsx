@@ -5,9 +5,15 @@ import { useTheme } from '../themeToggle';
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const [isRotated, setIsRotated] = useState(false);
 
   const handleLinkClick = () => {
     setIsOpen(false);
+  };
+
+  const handleThemeToggle = () => {
+    toggleTheme();
+    setIsRotated(!isRotated);
   };
 
   useEffect(() => {
@@ -55,8 +61,8 @@ const Header: React.FC = () => {
           </div>
         </nav>
         <button
-          onClick={toggleTheme}
-          className="ml-4 focus:outline-none transform transition-transform duration-300 hover:scale-[1.3]"
+          onClick={handleThemeToggle}
+          className={`ml-4 focus:outline-none transform transition-transform duration-300 hover:scale-[1.3] ${isRotated ? 'rotate-90' : ''}`}
           aria-label="Toggle Theme"
         >
           {theme === 'dark' ? (
