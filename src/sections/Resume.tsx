@@ -37,6 +37,14 @@ const Resume: React.FC = () => {
         <h2 className={`text-4xl flex items-center justify-center font-rubik font-bold ${theme === 'dark' ? 'text-white' : 'text-black'} mt-8`}>
           Resume Section
         </h2>
+        <p className={`mt-4 flex items-center justify-center text-lg ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+          Click here to download my resume
+          <a href="path/to/your/resume.pdf" download className="ml-2 flex items-center justify-center p-2 rounded-full">
+            <img src={theme === 'dark' ? 'src/assets/download-white.png' : 'src/assets/download-black.png'} alt="Download Resume" className="w-6 h-6 sm:w-8 sm:h-8 transform transition-transform duration-300 hover:scale-[1.3]" />
+          </a>
+        </p>
+
+
         <div className="flex flex-col md:flex-row w-full mt-8">
           {/* Left side */}
           <div className="md:w-1/2 pl-10 pr-4 relative">
