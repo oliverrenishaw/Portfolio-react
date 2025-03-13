@@ -13,7 +13,7 @@ const Resume: React.FC = () => {
       </h2>
       <div className="flex flex-col md:flex-row w-full mt-8">
         {/* Left side */}
-        <div className="md:w-1/2 pl-16 pr-4 relative">
+        <div className="md:w-1/2 pl-10 pr-4 relative">
           <div className="mb-8">
             <h3 className={`text-2xl font-bold mb-4 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>Education</h3>
             <div className="timeline relative">
@@ -52,7 +52,7 @@ const Resume: React.FC = () => {
             </div>
           </div>
           <div className="mb-8">
-            <h3 className={`text-2xl font-bold mb-4 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>Leadership Positions</h3>
+            <h3 className={`text-2xl font-bold mb-4 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#81bbc2]'}`}>Leadership Positions</h3>
             <div className="timeline relative">
               <div className={`absolute left-0 top-0 h-full border-l-2 ${theme === 'dark' ? 'border-white' : 'border-black'}`}></div>
               {/* Leadership Positions */}

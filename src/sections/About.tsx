@@ -6,7 +6,7 @@ const About: React.FC = () => {
 
   return (
     <section
-      className={`w-full flex flex-col items-center justify-start px-8 md:px-16 pt-16 pb-8 ${theme === 'dark' ? 'bg-[#091218]' : 'bg-[#ffffff]'}`}
+      className={`w-full flex flex-col items-center justify-start px-2 md:px-10 pt-16 pb-8 ${theme === 'dark' ? 'bg-[#091218]' : 'bg-[#ffffff]'}`}
     >
       <h2 className={`text-4xl font-rubik font-bold ${theme === 'dark' ? 'text-[#ffffff]' : 'text-[#000000]'}`}>
         About
