@@ -58,7 +58,7 @@ const Resume: React.FC = () => {
                     2021-2024
                   </div>
                   <div className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === 'dark' ? 'bg-[#091218] text-white' : 'bg-[#f0f0f0] text-black'}`}>
-                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>BSc Computing for Business & Management Degree</h4>
+                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#000000]'}`}>BSc Computing for Business & Management Degree</h4>
                     <div className="timeline-location font-semibold italic">University of Sussex</div>
                     <div className="timeline-grade">Obtained a First Class. My dissertation project was 'Recommendation System'.</div>
                   </div>
@@ -68,7 +68,7 @@ const Resume: React.FC = () => {
                     2019-2021
                   </div>
                   <div className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === 'dark' ? 'bg-[#091218] text-white' : 'bg-[#f0f0f0] text-black'}`}>
-                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>A-Levels</h4>
+                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#000000]'}`}>A-Levels</h4>
                     <div className="timeline-location font-semibold italic">Wheatley Park Sixth Form</div>
                     <div className="timeline-grade">Obtained ABB in Computer Science, Mathematics, Geography. Also obtained a D in AS Sociology.</div>
                   </div>
@@ -78,7 +78,7 @@ const Resume: React.FC = () => {
                     2014-2019
                   </div>
                   <div className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === 'dark' ? 'bg-[#091218] text-white' : 'bg-[#f0f0f0] text-black'}`}>
-                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>GCSEs</h4>
+                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#000000]'}`}>GCSEs</h4>
                     <div className="timeline-location font-semibold italic">Wheatley Park Secondary School</div>
                     <div className="timeline-grade">Obtained 10 GCSEs (Mathematics, English Lit & Lang, Physics, Chemistry, Biology, Computer Science, Geography, French, Music)</div>
                   </div>
@@ -95,7 +95,7 @@ const Resume: React.FC = () => {
                     Sep-Dec 2024
                   </div>
                   <div className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === 'dark' ? 'bg-[#091218] text-white' : 'bg-[#f0f0f0] text-black'}`}>
-                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>Mentoring Buddy Scheme</h4>
+                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#000000]'}`}>Mentoring Buddy Scheme</h4>
                     <div className="timeline-location font-semibold italic">University of Sussex</div>
                     <div className="timeline-content">I supported 3 international students by connecting them with societies and resources, and organising meetings and tours around Brighton city.</div>
                   </div>
@@ -105,7 +105,7 @@ const Resume: React.FC = () => {
                     Sep-June 2024
                   </div>
                   <div className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === 'dark' ? 'bg-[#091218] text-white' : 'bg-[#f0f0f0] text-black'}`}>
-                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>Finance Society Social Media Manager</h4>
+                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#000000]'}`}>Finance Society Social Media Manager</h4>
                     <div className="timeline-location font-semibold italic">University of Sussex</div>
                     <div className="timeline-content">I created weekly social media content for society events and contributed ideas in committee meetings.</div>
                   </div>
@@ -126,7 +126,7 @@ const Resume: React.FC = () => {
                     Sep 2024-Present
                   </div>
                   <div className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === 'dark' ? 'bg-[#091218] text-white' : 'bg-[#f0f0f0] text-black'}`}>
-                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>Graduate Analyst Programmer</h4>
+                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#000000]'}`}>Graduate Analyst Programmer</h4>
                     <div className="timeline-company font-semibold italic">Renishaw</div>
                     <div className="timeline-location font-semibold italic">Bristol</div>
                     <div className="timeline-content">On a 2-year graduate scheme. I am currently working as a frontend developer on a big project for the companies website.</div>
@@ -137,7 +137,7 @@ const Resume: React.FC = () => {
                     June-Aug 2023
                   </div>
                   <div className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === 'dark' ? 'bg-[#091218] text-white' : 'bg-[#f0f0f0] text-black'}`}>
-                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>Web Developer Intern</h4>
+                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#000000]'}`}>Web Developer Intern</h4>
                     <div className="timeline-company font-semibold italic">Unusual Technologies</div>
                     <div className="timeline-location font-semibold italic">Brighton</div>
                     <div className="timeline-content">Modernised the company website using WordPress, implemented an AI chatbot, collaborated on innovative solutions, designed a private scheduler on AWS, and developed a Christmas-themed escape room game in Unity.</div>
@@ -148,7 +148,7 @@ const Resume: React.FC = () => {
                     Sep 2023-Aug 2024
                   </div>
                   <div className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === 'dark' ? 'bg-[#091218] text-white' : 'bg-[#f0f0f0] text-black'}`}>
-                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>Customer Service Assistant</h4>
+                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#000000]'}`}>Customer Service Assistant</h4>
                     <div className="timeline-company font-semibold italic">Sussex Student Union Bar</div>
                     <div className="timeline-location font-semibold italic">Brighton</div>
                     <div className="timeline-content">Enhanced multitasking and problem-solving skills in a fast-paced bar, delivering excellent customer service and fostering a welcoming atmosphere.</div>
@@ -159,7 +159,7 @@ const Resume: React.FC = () => {
                     June-Sep 2022
                   </div>
                   <div className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === 'dark' ? 'bg-[#091218] text-white' : 'bg-[#f0f0f0] text-black'}`}>
-                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>Sales Assistant</h4>
+                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#000000]'}`}>Sales Assistant</h4>
                     <div className="timeline-company font-semibold italic">Next</div>
                     <div className="timeline-location font-semibold italic">Oxford</div>
                     <div className="timeline-content">Developed strong work ethic and communication skills, efficiently managed stock, and maintained positive relationships with management and colleagues.</div>
@@ -170,7 +170,7 @@ const Resume: React.FC = () => {
                     June-Sep 2022
                   </div>
                   <div className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === 'dark' ? 'bg-[#091218] text-white' : 'bg-[#f0f0f0] text-black'}`}>
-                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>Rugby Coach</h4>
+                    <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#000000]'}`}>Rugby Coach</h4>
                     <div className="timeline-company font-semibold italic">Chinnor Rugby Club</div>
                     <div className="timeline-location font-semibold italic">Thame</div>
                     <div className="timeline-content">Conducted personalised training sessions for children, taught teamwork and acceptable behavior, and ensured health and safety compliance.</div>

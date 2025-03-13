@@ -140,13 +140,13 @@ const Projects: React.FC = () => {
               <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
                 <img src={project.image} alt={project.title} className="w-full h-32 object-cover rounded-md mb-4" />
               </a>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
+              <p className="text-[#000000] dark:text-[#ffffff] mb-4">{project.description}</p>
               <div className="space-y-2">
                 {project.skills.map((skill, skillIndex) => (
                   <div key={skillIndex}>
                     <span className="text-sm font-medium text-gray-900 dark:text-white">{skill.name}</span>
                     <div className="w-full bg-gray-200 dark:bg-[#6f6e6e] rounded-full h-2.5">
-                      <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: skill.percentage }}></div>
+                      <div className="bg-[#ff9934] h-2.5 rounded-full" style={{ width: skill.percentage }}></div>
                     </div>
                   </div>
                 ))}
