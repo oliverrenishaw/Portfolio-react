@@ -6,7 +6,7 @@ const Resume: React.FC = () => {
 
   return (
     <section
-      className={`w-full flex flex-col items-center justify-start px-12 md:px-24 pt-16 pb-8 ${theme === 'dark' ? 'bg-[#30414d]' : 'bg-[#ffffff]'}`}
+      className={`w-full flex flex-col items-center justify-start px-2 md:px-10 pt-16 pb-8 ${theme === 'dark' ? 'bg-[#30414d]' : 'bg-[#ffffff]'}`}
     >
       <h2 className={`text-4xl font-rubik font-bold ${theme === 'dark' ? 'text-white' : 'text-black'} mt-8`}>
         Resume Section
@@ -17,9 +17,8 @@ const Resume: React.FC = () => {
           <div className="mb-8">
             <h3 className={`text-2xl font-bold mb-4 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>Education</h3>
             <div className="timeline relative">
-              {/* Timeline line */}
               <div className={`absolute left-0 top-0 h-full border-l-2 ${theme === 'dark' ? 'border-white' : 'border-black'}`}></div>
-              {/* Add your education items here */}
+              {/* Education*/}
               <div className="flex items-start mb-4">
                 <div className={`timeline-date text-lg font-semibold ${theme === 'dark' ? 'text-white' : 'text-black'} pl-8 mr-4`}>
                   2021-2024
@@ -27,7 +26,7 @@ const Resume: React.FC = () => {
                 <div className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === 'dark' ? 'bg-[#091218] text-white' : 'bg-[#f0f0f0] text-black'}`}>
                   <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>BSc Computing for Business & Management</h4>
                   <div className="timeline-location font-semibold italic">University of Sussex</div>
-                  <div className="timeline-grade">First Class</div>
+                  <div className="timeline-grade">Obtained a First Class. My dissertation project was 'Recommendation System'.</div>
                 </div>
               </div>
               <div className="flex items-start mb-4">
@@ -37,7 +36,7 @@ const Resume: React.FC = () => {
                 <div className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === 'dark' ? 'bg-[#091218] text-white' : 'bg-[#f0f0f0] text-black'}`}>
                   <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>A-Level's</h4>
                   <div className="timeline-location font-semibold italic">Wheatley Park Sixth Form</div>
-                  <div className="timeline-grade">ABB - Computer Science, Mathematics, Geography</div>
+                  <div className="timeline-grade">Obtained ABB in Computer Science, Mathematics, Geography. Also obtained a D in AS Sociology.</div>
                 </div>
               </div>
               <div className="flex items-start mb-4">
@@ -47,7 +46,7 @@ const Resume: React.FC = () => {
                 <div className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === 'dark' ? 'bg-[#091218] text-white' : 'bg-[#f0f0f0] text-black'}`}>
                   <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>GCSE's</h4>
                   <div className="timeline-location font-semibold italic">Wheatley Park Secondary School</div>
-                  <div className="timeline-grade">10 GCSEs passed, including Mathematics & English</div>
+                  <div className="timeline-grade">Obtained 10 GCSEs (Mathematics, English Lit & Lang, Physics, Chemistry, Biology, Computer Science, Geography, French, Music)</div>
                 </div>
               </div>
             </div>
@@ -55,9 +54,8 @@ const Resume: React.FC = () => {
           <div className="mb-8">
             <h3 className={`text-2xl font-bold mb-4 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>Leadership Positions</h3>
             <div className="timeline relative">
-              {/* Timeline line */}
               <div className={`absolute left-0 top-0 h-full border-l-2 ${theme === 'dark' ? 'border-white' : 'border-black'}`}></div>
-              {/* Add your leadership items here */}
+              {/* Leadership Positions */}
               <div className="flex items-start mb-4">
                 <div className={`timeline-date text-lg font-semibold ${theme === 'dark' ? 'text-white' : 'text-black'} pl-8 mr-4`}>
                   Sep-Dec 2024
@@ -75,20 +73,20 @@ const Resume: React.FC = () => {
                 <div className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === 'dark' ? 'bg-[#091218] text-white' : 'bg-[#f0f0f0] text-black'}`}>
                   <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>Finance Society Social Media Manager</h4>
                   <div className="timeline-location font-semibold italic">University of Sussex</div>
-                  <div className="timeline-content">I create weekly social media content for society events and contribute ideas in committee meetings.</div>
+                  <div className="timeline-content">I created weekly social media content for society events and contributed ideas in committee meetings.</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
         {/* Right side */}
-        <div className="md:w-1/2 pl-16 pr-4 relative">
+        <div className="md:w-1/2 pl-10 pr-4 relative">
           <div className="mb-8">
             <h3 className={`text-2xl font-bold mb-4 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>Work Experience</h3>
             <div className="timeline relative">
-              {/* Timeline line */}
               <div className={`absolute left-0 top-0 h-full border-l-2 ${theme === 'dark' ? 'border-white' : 'border-black'}`}></div>
-              {/* Add your work experience items here */}
+              {/* Work Experience */}
               <div className="flex items-start mb-4">
                 <div className={`timeline-date text-lg font-semibold ${theme === 'dark' ? 'text-white' : 'text-black'} pl-8 mr-4 md:w-24 md:text-right`}>
                   Sep 2024-Present
@@ -97,7 +95,7 @@ const Resume: React.FC = () => {
                   <h4 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-[#ff9934]' : 'text-[#30414d]'}`}>Graduate Analyst Programmer</h4>
                   <div className="timeline-company font-semibold italic">Renishaw</div>
                   <div className="timeline-location font-semibold italic">Bristol</div>
-                  <div className="timeline-content">On a 2-year grad scheme</div>
+                  <div className="timeline-content">On a 2-year graduate scheme. I am currently working as a frontend developer on a big project for the companies website.</div>
                 </div>
               </div>
               <div className="flex items-start mb-4">
