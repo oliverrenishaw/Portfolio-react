@@ -1,20 +1,22 @@
 /* General */
 
 body {
-    font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 }
 
 /* header */
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 .nav-link {
-    padding: 2px 10px;
-    border-radius: 20px;
-    font-size: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
