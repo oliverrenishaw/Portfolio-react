@@ -122,7 +122,7 @@ const About: React.FC = () => {
                 className="w-auto h-auto object-cover"
               />
               <div className="absolute top-0 bottom-0 left-0 right-0 h-full w-auto opacity-0 transition-opacity duration-500 bg-[#8ba36a] hover:opacity-90 flex items-center justify-center">
-                <div className="text-white text-lg">Fun fact: I have a twin</div>
+                <div className="text-white text-lg text-center">Fun fact: I have a twin</div>
               </div>
             </div>
           </div>
