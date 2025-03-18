@@ -42,10 +42,10 @@ const About: React.FC = () => {
         <p
           className={`mt-8 text-lg ${theme === "dark" ? "text-[#ffffff]" : "text-[#000000]"}`}
         >
-          Computer Science graduate from the University of Sussex, working as an
-          Analyst Programmer for an engineering & manufacturing company now with
-          a passion for technology and a deep commitment to learning and growth
-          in the technology field.
+          I'm a Computer Science graduate from the University of Sussex, working as an Analyst Programmer 
+          for an engineering & manufacturing company. I have a strong passion for designing websites and 
+          exploring new technologies. I enjoy creating visually appealing and user-friendly interfaces, 
+          and I'm always eager to learn and experiment with new tools and techniques to enhance my skills.
         </p>
         <div className="flex flex-col md:flex-row mt-12 w-full">
           <div className="md:w-1/2">
@@ -57,7 +57,10 @@ const About: React.FC = () => {
             <p
               className={`mt-2 text-lg ${theme === "dark" ? "text-[#ffffff]" : "text-[#000000]"}`}
             >
-              description here......
+              As an analyst programmer, I focus on front end web development, working with React, 
+              JavaScript, TypeScript, and Tailwind CSS. I collaborate with developers and testers 
+              to ensure a seamless user experience and meet design requirements. I stay updated with 
+              industry trends to improve our development processes and deliver high-quality solutions.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
               <div>
@@ -112,14 +115,14 @@ const About: React.FC = () => {
             </div>
           </div>
           <div className="md:w-1/2 flex items-center justify-center mt-8 md:mt-0">
-            <div className="relative w-1/2">
+            <div className="relative w-1/3">
               <img
                 src="public/profile-img.jpg"
                 alt="Hero"
-                className="w-[300px] h-auto object-cover"
+                className="w-auto h-auto object-cover"
               />
-              <div className="absolute top-0 bottom-0 left-0 right-0 h-full w-[300px] opacity-0 transition-opacity duration-500 bg-[#8ba36a] hover:opacity-90 flex items-center justify-center">
-                <div className="text-white text-xl">Fun fact: I have a twin</div>
+              <div className="absolute top-0 bottom-0 left-0 right-0 h-full w-auto opacity-0 transition-opacity duration-500 bg-[#8ba36a] hover:opacity-90 flex items-center justify-center">
+                <div className="text-white text-lg">Fun fact: I have a twin</div>
               </div>
             </div>
           </div>
