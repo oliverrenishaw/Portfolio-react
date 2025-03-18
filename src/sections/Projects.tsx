@@ -28,95 +28,95 @@ const Projects: React.FC = () => {
 
   const projects = [
     {
-      title: "Calculator App",
-      image: "public/calculator-app.jpg",
-      description: "A simple calculator app with basic arithmetic functions.",
+      title: "Portfolio Website",
+      image: "src/assets/portfolio-website.png",
+      description: "A portfolio webite displaying my skills as a software engineer.",
       skills: [
-        { name: "HTML", percentage: "80%" },
-        { name: "CSS", percentage: "70%" },
-        { name: "JavaScript", percentage: "90%" },
+        { name: "HTML", percentage: "7.5%", color: "#ff6961" },
+        { name: "CSS", percentage: "38.2%", color: "#ffb347" },
+        { name: "JavaScript", percentage: "27.8%", color: "#ffb07c" },
+        { name: "TypeScript", percentage: "26.5%", color: "#77dd77" },
       ],
     },
     {
       title: "E-commerce Website",
-      image: "public/ecommerce-website.jpg",
+      image: "src/assets/ecommerce.png",
       description:
         "An e-commerce website with product listings, shopping cart, and checkout functionality.",
       skills: [
-        { name: "HTML", percentage: "85%" },
-        { name: "CSS", percentage: "75%" },
-        { name: "JavaScript", percentage: "95%" },
+        { name: "HTML", percentage: "85%", color: "#ff6961" },
+        { name: "CSS", percentage: "75%", color: "#ffb347" },
+        { name: "JavaScript", percentage: "95%", color: "#ffb07c" },
       ],
     },
     {
-      title: "Chess Game",
-      image: "public/chess-game.jpg",
-      description: "A web-based chess game with two-player functionality.",
+      title: "Calculator App",
+      image: "src/assets/calculator.png",
+      description: "A simple calculator app with basic arithmetic functions.",
       skills: [
-        { name: "HTML", percentage: "70%" },
-        { name: "CSS", percentage: "60%" },
-        { name: "JavaScript", percentage: "80%" },
+        { name: "PHP", percentage: "80%", color: "#ffb6c1" },
+        { name: "CSS", percentage: "70%", color: "#ffb347" },
+        { name: "C#", percentage: "90%", color: "#ff6961" },
       ],
     },
     {
       title: "AI Chatbot",
-      image: "public/ai-chatbot.jpg",
+      image: "src/assets/chatbot.jpg",
       description: "An AI-powered chatbot for customer service.",
       skills: [
-        { name: "Python", percentage: "90%" },
-        { name: "Machine Learning", percentage: "85%" },
-        { name: "Natural Language Processing", percentage: "80%" },
+        { name: "Python", percentage: "90%", color: "#a3dbef" },
+        { name: "PHP", percentage: "85%", color: "#ffb6c1" },
+        { name: "SQL", percentage: "80%", color: "#b39eb5" }, 
       ],
     },
     {
       title: "Catan Game",
-      image: "public/catan-game.jpg",
+      image: "src/assets/catan.jpg",
       description: "A digital version of the popular board game Catan.",
       skills: [
-        { name: "HTML", percentage: "75%" },
-        { name: "CSS", percentage: "65%" },
-        { name: "JavaScript", percentage: "85%" },
+        { name: "Python", percentage: "75%", color: "#a3dbef" },
+        { name: "SQL", percentage: "65%", color: "#b39eb5" },
+        { name: "JavaScript", percentage: "85%", color: "#ffb07c" },
       ],
     },
     {
       title: "Racing Game",
-      image: "public/racing-game.jpg",
+      image: "src/assets/racing.jpg",
       description: "A 3D racing game with multiple tracks and cars.",
       skills: [
-        { name: "C#", percentage: "80%" },
-        { name: "Unity", percentage: "85%" },
-        { name: "3D Modeling", percentage: "70%" },
+        { name: "C#", percentage: "80%", color: "#ff6961" },
+        { name: "SQL", percentage: "85%", color: "#b39eb5" },
+        { name: "Java", percentage: "70%", color: "#779ecb" },
       ],
     },
     {
       title: "Machine Learning Recommendation System",
-      image: "public/ml-recommendation-system.jpg",
+      image: "src/assets/book.png",
       description: "A recommendation system using machine learning algorithms.",
       skills: [
-        { name: "Python", percentage: "90%" },
-        { name: "Machine Learning", percentage: "95%" },
-        { name: "Data Analysis", percentage: "85%" },
+        { name: "Python", percentage: "90%", color: "#a3dbef" },
+        { name: "SQL", percentage: "95%", color: "#b39eb5" },
       ],
     },
     {
       title: "Cybersecurity Project",
-      image: "public/cybersecurity-project.jpg",
+      image: "src/assets/security.jpg",
       description: "A project focused on enhancing cybersecurity measures.",
       skills: [
-        { name: "Python", percentage: "80%" },
-        { name: "Network Security", percentage: "85%" },
-        { name: "Cryptography", percentage: "75%" },
+        { name: "Python", percentage: "80%", color: "#a3dbef" },
+        { name: "Java", percentage: "85%", color: "#779ecb" },
+        { name: "PHP", percentage: "75%", color: "#ffb6c1" },
       ],
     },
     {
       title: "Weather App",
-      image: "public/weather-app.jpg",
+      image: "src/assets/weather.png",
       description:
         "A weather app that provides current weather information and forecasts.",
       skills: [
-        { name: "HTML", percentage: "80%" },
-        { name: "CSS", percentage: "70%" },
-        { name: "JavaScript", percentage: "90%" },
+        { name: "HTML", percentage: "80%", color: "#ff6961" },
+        { name: "CSS", percentage: "70%", color: "#ffb347" },
+        { name: "JavaScript", percentage: "90%", color: "#ffb07c" },
       ],
     },
   ];
@@ -164,14 +164,14 @@ const Projects: React.FC = () => {
               </p>
               <div className="space-y-2">
                 {project.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
+                  <div key={skillIndex} className="relative">
                     <span className="text-sm font-medium text-gray-900 dark:text-white">
-                      {skill.name}
+                      {skill.name} - {skill.percentage}
                     </span>
-                    <div className="w-full bg-gray-200 dark:bg-[#6f6e6e] rounded-full h-2.5">
+                    <div className="w-full bg-gray-200 dark:bg-[#6f6e6e] rounded-full h-2.5 relative">
                       <div
-                        className="bg-[#ff9934] h-2.5 rounded-full"
-                        style={{ width: skill.percentage }}
+                        className="h-2.5 rounded-full"
+                        style={{ width: skill.percentage, backgroundColor: skill.color }}
                       ></div>
                     </div>
                   </div>
