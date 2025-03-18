@@ -5,8 +5,9 @@ export default {
   theme: {
     extend: {
       fontSize: {
-        xs: "0.75rem",
-        "2xs": "0.625rem",
+        xs: "0.75rem", // Existing size
+        "2xs": "0.625rem", // Existing size
+        "3xs": "0.5rem", // New custom size
       },
       keyframes: {
         bounce: {
