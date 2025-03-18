@@ -145,7 +145,7 @@ const Projects: React.FC = () => {
               key={index}
               className="bg-[#8cc1c7] dark:bg-[#30414d] p-4 rounded-lg shadow-md flex flex-col"
             >
-              <h3 className="text-2xl font-bold mb-2 text-center text-[#000] dark:text-[#ff9934]">
+              <h3 className="text-2xl font-bold mb-2 text-center text-[#000] dark:text-[#ff9934] font-rubik">
                 {project.title}
               </h3>
               <a
