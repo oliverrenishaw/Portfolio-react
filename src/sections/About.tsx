@@ -112,11 +112,16 @@ const About: React.FC = () => {
             </div>
           </div>
           <div className="md:w-1/2 flex items-center justify-center mt-8 md:mt-0">
-            <img
-              src="public/profile-img.jpg"
-              alt="Hero"
-              className="w-1/2 h-auto object-cover"
-            />
+            <div className="relative w-1/2">
+              <img
+                src="public/profile-img.jpg"
+                alt="Hero"
+                className="w-[300px] h-auto object-cover"
+              />
+              <div className="absolute top-0 bottom-0 left-0 right-0 h-full w-[300px] opacity-0 transition-opacity duration-500 bg-[#8ba36a] hover:opacity-90 flex items-center justify-center">
+                <div className="text-white text-xl">Fun fact: I have a twin</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

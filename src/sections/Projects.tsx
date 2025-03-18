@@ -133,6 +133,16 @@ const Projects: React.FC = () => {
 
   const filteredProjects = selectedCategory === "All" ? projects : projects.filter(project => project.category === selectedCategory);
 
+  useEffect(() => {
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+      const htmlCard = card as HTMLElement; // Cast to HTMLElement
+      htmlCard.classList.remove('animate-move');
+      void htmlCard.offsetWidth; // Trigger reflow
+      htmlCard.classList.add('animate-move');
+    });
+  }, [selectedCategory]);
+
   return (
     <section
       className={`w-full flex flex-col items-center justify-start px-4 md:px-20 pt-16 pb-8 ${theme === "dark" ? "bg-[#091218]" : "bg-[#ffffff]"}`}
@@ -162,14 +172,14 @@ const Projects: React.FC = () => {
             </button>
           ))}
         </div>
-        <div className="grid gap-4 mt-12 w-full px-2 md:px-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))" }}>
+        <div className="grid gap-4 mt-12 w-full px-2 md:px-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))"}}>
           {filteredProjects.map((project, index) => (
             <a
               key={index}
               href="https://github.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#8cc1c7] dark:bg-[#30414d] p-4 rounded-lg shadow-md flex flex-col transform transition-transform duration-300 hover:scale-95"
+              className="project-card bg-[#8cc1c7] dark:bg-[#30414d] p-4 rounded-lg shadow-md flex flex-col transform transition-transform duration-300 hover:scale-95"
             >
               <h3 className="text-2xl md:text-xl sm:text-lg font-bold mb-2 text-center text-[#000] dark:text-[#ff9934] font-rubik">
                 {project.title}
