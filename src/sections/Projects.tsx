@@ -139,26 +139,23 @@ const Projects: React.FC = () => {
         >
           Click a project card to see behind the scenes.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-12 w-full px-2 md:px-5">
+        <div className="grid gap-4 mt-12 w-full px-2 md:px-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))" }}>
           {projects.map((project, index) => (
-            <div
+            <a
               key={index}
-              className="bg-[#8cc1c7] dark:bg-[#30414d] p-4 rounded-lg shadow-md flex flex-col"
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#8cc1c7] dark:bg-[#30414d] p-4 rounded-lg shadow-md flex flex-col transform transition-transform duration-300 hover:scale-95"
             >
-              <h3 className="text-2xl font-bold mb-2 text-center text-[#000] dark:text-[#ff9934] font-rubik">
+              <h3 className="text-2xl md:text-xl sm:text-lg font-bold mb-2 text-center text-[#000] dark:text-[#ff9934] font-rubik">
                 {project.title}
               </h3>
-              <a
-                href="https://github.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-32 object-cover rounded-md mb-4"
-                />
-              </a>
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-32 object-cover rounded-md mb-4"
+              />
               <p className="text-[#000000] dark:text-[#ffffff] mb-4">
                 {project.description}
               </p>
@@ -177,7 +174,7 @@ const Projects: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
