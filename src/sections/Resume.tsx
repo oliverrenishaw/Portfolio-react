@@ -28,7 +28,7 @@ const Resume: React.FC = () => {
 
   return (
     <section
-      className={`w-full flex flex-col items-center justify-start px-4 md:px-20 pt-16 pb-8 ${theme === "dark" ? "bg-[#30414d]" : "bg-[#ffffff]"}`}
+      className={`w-full flex flex-col items-center justify-start px-4 md:px-20 pt-16 pb-8 ${theme === "dark" ? "bg-[#30414d]" : "bg-[#edfafd]"}`}
     >
       <div
         ref={contentRef}

@@ -28,7 +28,7 @@ const Skills: React.FC = () => {
 
   return (
     <section
-      className={`w-full h-screen flex items-center justify-center ${theme === "dark" ? "bg-[#30414d]" : "bg-[#ffffff]"}`}
+      className={`w-full h-screen flex items-center justify-center ${theme === "dark" ? "bg-[#30414d]" : "bg-[#edfafd]"}`}
     >
       <div
         ref={contentRef}

@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useTheme } from "../themeToggle";
 
 const Projects: React.FC = () => {
   const { theme } = useTheme();
   const contentRef = useRef<HTMLDivElement>(null);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,6 +32,7 @@ const Projects: React.FC = () => {
       title: "Portfolio Website",
       image: "src/assets/portfolio-website.png",
       description: "A portfolio webite displaying my skills as a software engineer.",
+      category: "Web",
       skills: [
         { name: "HTML", percentage: "7.5%", color: "#ff6961" },
         { name: "CSS", percentage: "38.2%", color: "#ffb347" },
@@ -43,6 +45,7 @@ const Projects: React.FC = () => {
       image: "src/assets/ecommerce.png",
       description:
         "An e-commerce website with product listings, shopping cart, and checkout functionality.",
+      category: "Web",
       skills: [
         { name: "HTML", percentage: "85%", color: "#ff6961" },
         { name: "CSS", percentage: "75%", color: "#ffb347" },
@@ -53,6 +56,7 @@ const Projects: React.FC = () => {
       title: "Calculator App",
       image: "src/assets/calculator.png",
       description: "A simple calculator app with basic arithmetic functions.",
+      category: "App",
       skills: [
         { name: "PHP", percentage: "80%", color: "#ffb6c1" },
         { name: "CSS", percentage: "70%", color: "#ffb347" },
@@ -63,6 +67,7 @@ const Projects: React.FC = () => {
       title: "AI Chatbot",
       image: "src/assets/chatbot.jpg",
       description: "An AI-powered chatbot for customer service.",
+      category: "Web",
       skills: [
         { name: "Python", percentage: "90%", color: "#a3dbef" },
         { name: "PHP", percentage: "85%", color: "#ffb6c1" },
@@ -73,6 +78,7 @@ const Projects: React.FC = () => {
       title: "Catan Game",
       image: "src/assets/catan.jpg",
       description: "A digital version of the popular board game Catan.",
+      category: "Game",
       skills: [
         { name: "Python", percentage: "75%", color: "#a3dbef" },
         { name: "SQL", percentage: "65%", color: "#b39eb5" },
@@ -83,6 +89,7 @@ const Projects: React.FC = () => {
       title: "Racing Game",
       image: "src/assets/racing.jpg",
       description: "A 3D racing game with multiple tracks and cars.",
+      category: "Game",
       skills: [
         { name: "C#", percentage: "80%", color: "#ff6961" },
         { name: "SQL", percentage: "85%", color: "#b39eb5" },
@@ -93,6 +100,7 @@ const Projects: React.FC = () => {
       title: "Machine Learning Recommendation System",
       image: "src/assets/book.png",
       description: "A recommendation system using machine learning algorithms.",
+      category: "App",
       skills: [
         { name: "Python", percentage: "90%", color: "#a3dbef" },
         { name: "SQL", percentage: "95%", color: "#b39eb5" },
@@ -102,6 +110,7 @@ const Projects: React.FC = () => {
       title: "Cybersecurity Project",
       image: "src/assets/security.jpg",
       description: "A project focused on enhancing cybersecurity measures.",
+      category: "Web",
       skills: [
         { name: "Python", percentage: "80%", color: "#a3dbef" },
         { name: "Java", percentage: "85%", color: "#779ecb" },
@@ -113,6 +122,7 @@ const Projects: React.FC = () => {
       image: "src/assets/weather.png",
       description:
         "A weather app that provides current weather information and forecasts.",
+      category: "App",
       skills: [
         { name: "HTML", percentage: "80%", color: "#ff6961" },
         { name: "CSS", percentage: "70%", color: "#ffb347" },
@@ -120,6 +130,8 @@ const Projects: React.FC = () => {
       ],
     },
   ];
+
+  const filteredProjects = selectedCategory === "All" ? projects : projects.filter(project => project.category === selectedCategory);
 
   return (
     <section
@@ -139,8 +151,19 @@ const Projects: React.FC = () => {
         >
           Click a project card to see behind the scenes.
         </p>
+        <div className="flex justify-center space-x-4 mt-4">
+          {["All", "Web", "App", "Game"].map(category => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-4 py-2 rounded transition-transform duration-300 transform hover:scale-95 ${theme === "dark" ? (selectedCategory === category ? "bg-[#df8b38] text-[#ffffff]" : "bg-[#30414d] text-[#ffffff]") : (selectedCategory === category ? "bg-[#8cc1c7] text-[#000000]" : "bg-[#e0f7fa] text-[#000000]")}`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
         <div className="grid gap-4 mt-12 w-full px-2 md:px-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))" }}>
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <a
               key={index}
               href="https://github.com/"
