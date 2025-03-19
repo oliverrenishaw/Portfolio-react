@@ -11,6 +11,12 @@ import nodeIcon from '../assets/node.png';
 import tailwindcssIcon from '../assets/tailwindcss.png';
 import bootstrapIcon from '../assets/bootstrap.png';
 import viteIcon from '../assets/vite.png';
+import phpIcon from '../assets/php.png';
+import figmaIcon from '../assets/figma.png';
+import csIcon from '../assets/cs.png';
+import vercelIcon from '../assets/vercel.jpg';
+import azureIcon from '../assets/azure.png';
+import vitestIcon from '../assets/vitest.png';
 
 const skillDescriptions = {
   HTML: "The foundation of the web, and I like to keep my structures sturdy. I've always said, Life without HTML is like writing a story without words.",
@@ -23,6 +29,12 @@ const skillDescriptions = {
   Git: "I'm so in sync with Git, every time I commit, even my coffee knows it's time for a break. And remember, always be committing!",
   TailwindCSS: 'Some need a compass to navigate, I just need my Tailwind. Building responsive designs faster than the wind can blow.',
   Bootstrap: 'Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.',
+  PHP: 'Text about PHP',
+  Figma: 'Text about Figma',
+  ContentStack: 'Text about ContentStack',
+  Vercel: 'Text about Vercel',
+  Azure: 'Text about Azure',
+  Vitest: 'Text about Vitest',
 };
 
 const Skills: React.FC = () => {
@@ -81,6 +93,12 @@ const Skills: React.FC = () => {
           { src: gitIcon, skill: "Git" },
           { src: tailwindcssIcon, skill: "TailwindCSS" },
           { src: bootstrapIcon, skill: "Bootstrap" },
+          { src: phpIcon, skill: "PHP" },
+          { src: figmaIcon, skill: "Figma" },
+          { src: csIcon, skill: "ContentStack" },
+          { src: vercelIcon, skill: "Vercel" },
+          { src: azureIcon, skill: "Azure" },
+          { src: vitestIcon, skill: "Vitest" },
         ].map(({ src, skill }) => (
           <button
             key={skill}
