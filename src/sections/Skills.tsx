@@ -7,17 +7,17 @@ import javascriptIcon from '../assets/js.png';
 import typescriptIcon from '../assets/typescript.png';
 import reactIcon from '../assets/react.png';
 import gitIcon from '../assets/git.png';
-import nodeIcon from '../assets/node.png';
-import tailwindcssIcon from '../assets/tailwindcss.png';
+import nodeIcon from '../assets/nodejs.png';
+import tailwindcssIcon from '../assets/Tailwind_CSS_Logo.png';
 import bootstrapIcon from '../assets/bootstrap.png';
 import viteIcon from '../assets/vite.png';
 import phpIcon from '../assets/php.png';
 import figmaIcon from '../assets/figma.png';
 import csIcon from '../assets/cs.png';
-import vercelIcon from '../assets/vercel.jpg';
+import vercelIcon from '../assets/vercel.png';
 import azureIcon from '../assets/azure-devops.png';
 import vitestIcon from '../assets/vitest.png';
-import postmanIcon from '../assets/postman.jpg';
+import postmanIcon from '../assets/postman.png';
 import nextjsIcon from '../assets/nextjs.png';
 import consciaIcon from '../assets/conscia.png';
 import confluenceIcon from '../assets/confluence.png';
@@ -128,7 +128,7 @@ const Skills: React.FC = () => {
               }`,
             }}
           >
-            <img src={src} alt={skill} className="w-16 h-16 absolute inset-0 m-auto" />
+            <img src={src} alt={skill} className="w-18 h-14 absolute inset-0 m-auto" />
             <div className="absolute top-0 bottom-0 left-0 right-0 h-full w-full opacity-0 transition-opacity duration-500 bg-[#30414d] hover:opacity-90 flex items-center justify-center">
               <div className="text-white text-sm text-center">{skill}</div>
             </div>
