@@ -81,7 +81,7 @@ const Resume: React.FC = () => {
                     2021-2024
                   </div>
                   <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#f0f0f0] text-black"}`}
+                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
                   >
                     <h4
                       className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
@@ -104,7 +104,7 @@ const Resume: React.FC = () => {
                     2019-2021
                   </div>
                   <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#f0f0f0] text-black"}`}
+                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
                   >
                     <h4
                       className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
@@ -127,7 +127,7 @@ const Resume: React.FC = () => {
                     2014-2019
                   </div>
                   <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#f0f0f0] text-black"}`}
+                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
                   >
                     <h4
                       className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
@@ -164,7 +164,7 @@ const Resume: React.FC = () => {
                     Sep-Dec 2024
                   </div>
                   <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#f0f0f0] text-black"}`}
+                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
                   >
                     <h4
                       className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
@@ -188,7 +188,7 @@ const Resume: React.FC = () => {
                     Sep-June 2024
                   </div>
                   <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#f0f0f0] text-black"}`}
+                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
                   >
                     <h4
                       className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
@@ -228,7 +228,7 @@ const Resume: React.FC = () => {
                     Sep 2024-Present
                   </div>
                   <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#f0f0f0] text-black"}`}
+                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
                   >
                     <h4
                       className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
@@ -255,7 +255,7 @@ const Resume: React.FC = () => {
                     June-Aug 2023
                   </div>
                   <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#f0f0f0] text-black"}`}
+                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
                   >
                     <h4
                       className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
@@ -283,7 +283,7 @@ const Resume: React.FC = () => {
                     Sep 2023-Aug 2024
                   </div>
                   <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#f0f0f0] text-black"}`}
+                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
                   >
                     <h4
                       className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
@@ -310,7 +310,7 @@ const Resume: React.FC = () => {
                     June-Sep 2022
                   </div>
                   <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#f0f0f0] text-black"}`}
+                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
                   >
                     <h4
                       className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
@@ -337,7 +337,7 @@ const Resume: React.FC = () => {
                     June-Sep 2022
                   </div>
                   <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#f0f0f0] text-black"}`}
+                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
                   >
                     <h4
                       className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}

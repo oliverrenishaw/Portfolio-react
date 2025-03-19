@@ -54,6 +54,22 @@ const Contact: React.FC = () => {
         </h2>
         <form onSubmit={handleFormSubmit} className="mt-8 space-y-4">
           <div>
+            <label htmlFor="name" className={`block text-lg ${theme === "dark" ? "text-[#ffffff]" : "text-[#000000]"}`}>
+              Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              className="w-full p-2 border border-gray-300 rounded-md"
+            />
+            <ValidationError 
+              prefix="Name" 
+              field="name"
+              errors={state.errors}
+            />
+          </div>
+          <div>
             <label htmlFor="email" className={`block text-lg ${theme === "dark" ? "text-[#ffffff]" : "text-[#000000]"}`}>
               Email Address
             </label>
