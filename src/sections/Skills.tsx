@@ -113,7 +113,7 @@ const Skills: React.FC = () => {
                     : '0'
                   : windowWidth < 768
                   ? Math.floor(index / 2) % 2 === 1
-                    ? '-4.5rem'
+                    ? '-4rem'
                     : '0'
                   : '0'
               }`,
