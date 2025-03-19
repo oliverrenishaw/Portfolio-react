@@ -82,13 +82,22 @@ const Skills: React.FC = () => {
       <div className="mt-40"></div>
       <div
         ref={contentRef}
-        className="opacity-0 transform translate-y-10 transition-opacity duration-1000 grid grid-cols-5 gap-x-4 ml-14"
+        className="opacity-0 transform translate-y-10 transition-opacity duration-1000 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 ml-14"
       >
         {skills.map(({ src, skill }, index) => (
           <div
             key={skill}
             className={`relative w-28 h-28 md:w-32 md:h-32 ${theme === "dark" ? "bg-[#df8b38]" : "bg-[#8cc1c7]"} clip-hexagon transition-transform duration-200 hover:scale-95 cursor-pointer`}
-            style={{ marginLeft: `${Math.floor(index / 5) * -4}rem`, marginTop: `${index >= 5 ? '-1rem' : '0'}` }}
+            style={{
+              marginLeft: `${
+                Math.floor(index / 5) % 2 === 1
+                  ? '-4.5rem'
+                  : Math.floor(index / 5) % 3 === 2
+                  ? ''
+                  : '0'
+              }`,
+              marginTop: `${index >= 5 ? '-1rem' : '0'}`,
+            }}
           >
             <img src={src} alt={skill} className="w-16 h-16 absolute inset-0 m-auto" />
             <div className="absolute top-0 bottom-0 left-0 right-0 h-full w-full opacity-0 transition-opacity duration-500 bg-[#30414d] hover:opacity-90 flex items-center justify-center">
