@@ -100,7 +100,7 @@ const Skills: React.FC = () => {
         {skills.map(({ src, skill }, index) => (
           <div
             key={skill}
-            className={`relative w-28 h-28 md:w-32 md:h-32 ${theme === "dark" ? "bg-[#df8b38]" : "bg-[#8cc1c7]"} clip-hexagon transition-transform duration-200 hover:scale-95 cursor-pointer`}
+            className={`relative w-28 h-28 md:w-32 md:h-32 ${theme === "dark" ? "bg-[#df8b38]" : "bg-[#5a7a7e]"} clip-hexagon transition-transform duration-200 hover:scale-95 cursor-pointer`}
             style={{
               marginLeft: `${
                 windowWidth >= 1024
