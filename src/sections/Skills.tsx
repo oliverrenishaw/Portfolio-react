@@ -91,7 +91,7 @@ const Skills: React.FC = () => {
             style={{ marginLeft: `${Math.floor(index / 5) * -4}rem`, marginTop: `${index >= 5 ? '-1rem' : '0'}` }}
           >
             <img src={src} alt={skill} className="w-16 h-16 absolute inset-0 m-auto" />
-            <div className="absolute top-0 bottom-0 left-0 right-0 h-full w-full opacity-0 transition-opacity duration-500 bg-[#8ba36a] hover:opacity-90 flex items-center justify-center">
+            <div className="absolute top-0 bottom-0 left-0 right-0 h-full w-full opacity-0 transition-opacity duration-500 bg-[#30414d] hover:opacity-90 flex items-center justify-center">
               <div className="text-white text-sm text-center">{skill}</div>
             </div>
           </div>
