@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useTheme } from "../themeToggle";
 
 import htmlIcon from '../assets/html.png';
@@ -48,6 +48,19 @@ const skills = [
 const Skills: React.FC = () => {
   const { theme } = useTheme();
   const contentRef = useRef<HTMLDivElement>(null);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -90,15 +103,29 @@ const Skills: React.FC = () => {
             className={`relative w-28 h-28 md:w-32 md:h-32 ${theme === "dark" ? "bg-[#df8b38]" : "bg-[#8cc1c7]"} clip-hexagon transition-transform duration-200 hover:scale-95 cursor-pointer`}
             style={{
               marginLeft: `${
-                Math.floor(index / 5) % 2 === 1
-                  ? '-4.5rem'
-                  : Math.floor(index / 3) % 2 === 1 && window.innerWidth >= 768 && window.innerWidth < 1024
-                  ? '-4.5rem'
-                  : Math.floor(index / 2) % 2 === 1 && window.innerWidth < 768
-                  ? '-4.5rem'
+                windowWidth >= 1024
+                  ? Math.floor(index / 5) % 2 === 1
+                    ? '-4.5rem'
+                    : '0'
+                  : windowWidth >= 768 && windowWidth < 1024
+                  ? Math.floor(index / 3) % 2 === 1
+                    ? '-4.5rem'
+                    : '0'
+                  : windowWidth < 768
+                  ? Math.floor(index / 2) % 2 === 1
+                    ? '-4.5rem'
+                    : '0'
                   : '0'
               }`,
-              marginTop: `${index >= 5 ? '-1rem' : '0'}`,
+              marginTop: `${
+                windowWidth >= 1024 && index >= 5
+                  ? '-1rem'
+                  : windowWidth >= 768 && windowWidth < 1024 && index >= 3
+                  ? '-1rem'
+                  : windowWidth < 768 && index >= 2
+                  ? '-1rem'
+                  : '0'
+              }`,
             }}
           >
             <img src={src} alt={skill} className="w-16 h-16 absolute inset-0 m-auto" />
