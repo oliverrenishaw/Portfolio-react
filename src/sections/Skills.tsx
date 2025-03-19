@@ -92,8 +92,10 @@ const Skills: React.FC = () => {
               marginLeft: `${
                 Math.floor(index / 5) % 2 === 1
                   ? '-4.5rem'
-                  : Math.floor(index / 5) % 3 === 2
-                  ? ''
+                  : Math.floor(index / 3) % 2 === 1 && window.innerWidth >= 768 && window.innerWidth < 1024
+                  ? '-4.5rem'
+                  : Math.floor(index / 2) % 2 === 1 && window.innerWidth < 768
+                  ? '-4.5rem'
                   : '0'
               }`,
               marginTop: `${index >= 5 ? '-1rem' : '0'}`,
