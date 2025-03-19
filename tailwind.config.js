@@ -5,9 +5,9 @@ export default {
   theme: {
     extend: {
       fontSize: {
-        xs: "0.75rem", // Existing size
-        "2xs": "0.625rem", // Existing size
-        "3xs": "0.5rem", // New custom size
+        xs: "0.75rem",
+        "2xs": "0.625rem",
+        "3xs": "0.5rem",
       },
       keyframes: {
         bounce: {
@@ -34,5 +34,13 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.clip-hexagon': {
+          clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+        },
+      });
+    },
+  ],
 };

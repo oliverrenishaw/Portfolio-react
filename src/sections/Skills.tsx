@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useTheme } from "../themeToggle";
 
 import htmlIcon from '../assets/html.png';
@@ -15,32 +15,39 @@ import phpIcon from '../assets/php.png';
 import figmaIcon from '../assets/figma.png';
 import csIcon from '../assets/cs.png';
 import vercelIcon from '../assets/vercel.jpg';
-import azureIcon from '../assets/azure.png';
+import azureIcon from '../assets/azure-devops.png';
 import vitestIcon from '../assets/vitest.png';
+import postmanIcon from '../assets/postman.jpg';
+import nextjsIcon from '../assets/nextjs.png';
+import consciaIcon from '../assets/conscia.png';
+import confluenceIcon from '../assets/confluence.png';
 
-const skillDescriptions = {
-  HTML: "The foundation of the web, and I like to keep my structures sturdy. I've always said, Life without HTML is like writing a story without words.",
-  CSS: "Styling isn't just for fashion; it's for websites too! My CSS skills are so sharp, I sometimes wonder if I missed my calling as a stylist.",
-  JavaScript: "While some are searching for the meaning of life, I'm here searching for the missing semicolon. JS keeps me on my toes, ensuring I never miss a beat (or a bracket).",
-  TypeScript: 'TypeScript is a strongly typed programming language that builds on JavaScript.',
-  Node: "With Node.js in my toolkit, I don't just hang around the event loop. I dive deep into the backend, ensuring everything runs smoothly. After all, why merely node your head in appreciation when you can have a full-on back-end jam session?",
-  React: "I like to think of myself as a bit 'reactive'. Thanks to React, I'm breaking UIs into components faster than you can say useState().",
-  Vite: 'Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects.',
-  Git: "I'm so in sync with Git, every time I commit, even my coffee knows it's time for a break. And remember, always be committing!",
-  TailwindCSS: 'Some need a compass to navigate, I just need my Tailwind. Building responsive designs faster than the wind can blow.',
-  Bootstrap: 'Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.',
-  PHP: 'Text about PHP',
-  Figma: 'Text about Figma',
-  ContentStack: 'Text about ContentStack',
-  Vercel: 'Text about Vercel',
-  Azure: 'Text about Azure',
-  Vitest: 'Text about Vitest',
-};
+const skills = [
+  { src: htmlIcon, skill: "HTML" },
+  { src: cssIcon, skill: "CSS" },
+  { src: javascriptIcon, skill: "JavaScript" },
+  { src: typescriptIcon, skill: "TypeScript" },
+  { src: nodeIcon, skill: "Node" },
+  { src: reactIcon, skill: "React" },
+  { src: viteIcon, skill: "Vite" },
+  { src: gitIcon, skill: "Git" },
+  { src: tailwindcssIcon, skill: "TailwindCSS" },
+  { src: bootstrapIcon, skill: "Bootstrap" },
+  { src: phpIcon, skill: "PHP" },
+  { src: figmaIcon, skill: "Figma" },
+  { src: csIcon, skill: "ContentStack" },
+  { src: vercelIcon, skill: "Vercel" },
+  { src: azureIcon, skill: "Azure" },
+  { src: vitestIcon, skill: "Vitest" },
+  { src: postmanIcon, skill: "Postman" },
+  { src: nextjsIcon, skill: "NextJs" },
+  { src: consciaIcon, skill: "Conscia" },
+  { src: confluenceIcon, skill: "Confluence" },
+];
 
 const Skills: React.FC = () => {
   const { theme } = useTheme();
   const contentRef = useRef<HTMLDivElement>(null);
-  const [selectedSkill, setSelectedSkill] = useState<string>('HTML');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -63,56 +70,32 @@ const Skills: React.FC = () => {
     };
   }, []);
 
-  const handleSkillClick = (skill: string) => {
-    console.log(`Skill clicked: ${skill}`);
-    setSelectedSkill(skill);
-  };
-
   return (
     <section
-      className={`w-full h- flex flex-col items-center ${theme === "dark" ? "bg-[#30414d]" : "bg-[#edfafd]"}`}
+      className={`w-full flex flex-col items-center ${theme === "dark" ? "bg-[#30414d]" : "bg-[#edfafd]"} pb-16`}
     >
       <h2
-        className={`text-4xl font-rubik font-bold mt-10 ${theme === "dark" ? "text-[#ffffff]" : "text-[#000000]"}`}
+        className={`text-4xl font-rubik font-bold mt-10 ${theme === "dark" ? "text-white" : "text-black"}`}
       >
         Skills Section
       </h2>
       <div className="mt-40"></div>
       <div
         ref={contentRef}
-        className="opacity-0 transform translate-y-10 transition-opacity duration-1000 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+        className="opacity-0 transform translate-y-10 transition-opacity duration-1000 grid grid-cols-5 gap-x-4 ml-14"
       >
-        {[
-          { src: htmlIcon, skill: "HTML" },
-          { src: cssIcon, skill: "CSS" },
-          { src: javascriptIcon, skill: "JavaScript" },
-          { src: typescriptIcon, skill: "TypeScript" },
-          { src: nodeIcon, skill: "Node" },
-          { src: reactIcon, skill: "React" },
-          { src: viteIcon, skill: "Vite" },
-          { src: gitIcon, skill: "Git" },
-          { src: tailwindcssIcon, skill: "TailwindCSS" },
-          { src: bootstrapIcon, skill: "Bootstrap" },
-          { src: phpIcon, skill: "PHP" },
-          { src: figmaIcon, skill: "Figma" },
-          { src: csIcon, skill: "ContentStack" },
-          { src: vercelIcon, skill: "Vercel" },
-          { src: azureIcon, skill: "Azure" },
-          { src: vitestIcon, skill: "Vitest" },
-        ].map(({ src, skill }) => (
-          <button
+        {skills.map(({ src, skill }, index) => (
+          <div
             key={skill}
-            className={`flex items-center gap-2 p-2 transition-transform duration-200 hover:scale-95 cursor-pointer ${theme === "dark" ? "text-[#ffffff]" : "text-[#000000]"}`}
-            onClick={() => handleSkillClick(skill)}
+            className={`relative w-28 h-28 md:w-32 md:h-32 ${theme === "dark" ? "bg-[#df8b38]" : "bg-[#8cc1c7]"} clip-hexagon transition-transform duration-200 hover:scale-95 cursor-pointer`}
+            style={{ marginLeft: `${Math.floor(index / 5) * -4}rem`, marginTop: `${index >= 5 ? '-1rem' : '0'}` }}
           >
-            <img src={src} alt={skill} className="w-5" />
-            <p>{skill}</p>
-          </button>
+            <img src={src} alt={skill} className="w-16 h-16 absolute inset-0 m-auto" />
+            <div className="absolute top-0 bottom-0 left-0 right-0 h-full w-full opacity-0 transition-opacity duration-500 bg-[#8ba36a] hover:opacity-90 flex items-center justify-center">
+              <div className="text-white text-sm text-center">{skill}</div>
+            </div>
+          </div>
         ))}
-      </div>
-      <div className="mt-20"></div>
-      <div className={`max-w-xl mx-auto p-4 border rounded-lg ${theme === "dark" ? "border-[#ffffff] text-[#ffffff]" : "border-[#000000] text-[#000000]"}`}>
-        <p>{skillDescriptions[selectedSkill]}</p>
       </div>
     </section>
   );

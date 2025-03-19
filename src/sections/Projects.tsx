@@ -145,7 +145,7 @@ const Projects: React.FC = () => {
 
   return (
     <section
-      className={`w-full flex flex-col items-center justify-start px-4 md:px-20 pt-16 pb-8 ${theme === "dark" ? "bg-[#091218]" : "bg-[#ffffff]"}`}
+      className={`w-full flex flex-col items-center justify-start px-4 md:px-20 pt-16 pb-16 ${theme === "dark" ? "bg-[#091218]" : "bg-[#ffffff]"}`}
     >
       <div
         ref={contentRef}
