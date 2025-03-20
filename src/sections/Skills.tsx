@@ -27,20 +27,23 @@ const skills = [
   { src: cssIcon, skill: "CSS" },
   { src: javascriptIcon, skill: "JavaScript" },
   { src: typescriptIcon, skill: "TypeScript" },
+  { src: tailwindcssIcon, skill: "TailwindCSS" },
+
   { src: nodeIcon, skill: "Node" },
   { src: reactIcon, skill: "React" },
   { src: viteIcon, skill: "Vite" },
+  { src: figmaIcon, skill: "Figma" },
   { src: gitIcon, skill: "Git" },
-  { src: tailwindcssIcon, skill: "TailwindCSS" },
+
   { src: bootstrapIcon, skill: "Bootstrap" },
   { src: phpIcon, skill: "PHP" },
-  { src: figmaIcon, skill: "Figma" },
   { src: csIcon, skill: "ContentStack" },
-  { src: vercelIcon, skill: "Vercel" },
   { src: azureIcon, skill: "Azure" },
   { src: vitestIcon, skill: "Vitest" },
+
   { src: postmanIcon, skill: "Postman" },
   { src: nextjsIcon, skill: "NextJs" },
+  { src: vercelIcon, skill: "Vercel" },
   { src: consciaIcon, skill: "Conscia" },
   { src: confluenceIcon, skill: "Confluence" },
 ];

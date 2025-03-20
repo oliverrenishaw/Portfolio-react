@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
 
   return (
     <section
-      className={`w-full h-screen flex items-center justify-center ${theme === "dark" ? "bg-[#091218]" : "bg-[#ffffff]"}`}
+      className={`w-full p-20 flex items-center justify-center ${theme === "dark" ? "bg-[#091218]" : "bg-[#ffffff]"}`}
     >
       <div
         ref={contentRef}
