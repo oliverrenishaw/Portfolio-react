@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTheme } from "../themeToggle";
-import { useForm, ValidationError } from '@formspree/react';
+import { useForm, ValidationError } from "@formspree/react";
 
 const Contact: React.FC = () => {
   const { theme } = useTheme();
@@ -54,7 +54,10 @@ const Contact: React.FC = () => {
         </h2>
         <form onSubmit={handleFormSubmit} className="mt-8 space-y-4">
           <div>
-            <label htmlFor="name" className={`block text-lg ${theme === "dark" ? "text-[#ffffff]" : "text-[#000000]"}`}>
+            <label
+              htmlFor="name"
+              className={`block text-lg ${theme === "dark" ? "text-[#ffffff]" : "text-[#000000]"}`}
+            >
               Name
             </label>
             <input
@@ -63,14 +66,13 @@ const Contact: React.FC = () => {
               name="name"
               className="w-full p-2 border border-gray-300 rounded-md"
             />
-            <ValidationError 
-              prefix="Name" 
-              field="name"
-              errors={state.errors}
-            />
+            <ValidationError prefix="Name" field="name" errors={state.errors} />
           </div>
           <div>
-            <label htmlFor="email" className={`block text-lg ${theme === "dark" ? "text-[#ffffff]" : "text-[#000000]"}`}>
+            <label
+              htmlFor="email"
+              className={`block text-lg ${theme === "dark" ? "text-[#ffffff]" : "text-[#000000]"}`}
+            >
               Email Address
             </label>
             <input
@@ -79,14 +81,17 @@ const Contact: React.FC = () => {
               name="email"
               className="w-full p-2 border border-gray-300 rounded-md"
             />
-            <ValidationError 
-              prefix="Email" 
+            <ValidationError
+              prefix="Email"
               field="email"
               errors={state.errors}
             />
           </div>
           <div>
-            <label htmlFor="message" className={`block text-lg ${theme === "dark" ? "text-[#ffffff]" : "text-[#000000]"}`}>
+            <label
+              htmlFor="message"
+              className={`block text-lg ${theme === "dark" ? "text-[#ffffff]" : "text-[#000000]"}`}
+            >
               Message
             </label>
             <textarea
@@ -94,22 +99,28 @@ const Contact: React.FC = () => {
               name="message"
               className="w-full p-2 border border-gray-300 rounded-md"
             />
-            <ValidationError 
-              prefix="Message" 
+            <ValidationError
+              prefix="Message"
               field="message"
               errors={state.errors}
             />
           </div>
           <div className="flex justify-center">
-          <button
-            type="submit"
-            disabled={state.submitting}
-            className={`px-4 py-2 rounded-md transform transition-transform duration-300 ${theme === "dark" ? "bg-[#f39436] text-white hover:bg-[#e0832f]" : "bg-[#b8d6df] text-[#000000] hover:bg-[#a0c4c9]"} hover:scale-95`}
-          >
-            Submit
-          </button>
+            <button
+              type="submit"
+              disabled={state.submitting}
+              className={`px-4 py-2 rounded-md transform transition-transform duration-300 ${theme === "dark" ? "bg-[#f39436] text-white hover:bg-[#e0832f]" : "bg-[#b8d6df] text-[#000000] hover:bg-[#a0c4c9]"} hover:scale-95`}
+            >
+              Submit
+            </button>
           </div>
-          {submitted && <p className={`mt-4 text-lg text-center ${theme === "dark" ? "text-[#ffffff]" : "text-[#000000]"}`}>Thanks for contacting me!</p>}
+          {submitted && (
+            <p
+              className={`mt-4 text-lg text-center ${theme === "dark" ? "text-[#ffffff]" : "text-[#000000]"}`}
+            >
+              Thanks for contacting me!
+            </p>
+          )}
         </form>
       </div>
     </section>

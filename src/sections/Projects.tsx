@@ -31,7 +31,8 @@ const Projects: React.FC = () => {
     {
       title: "Portfolio Website",
       image: "src/assets/portfolio-website.png",
-      description: "A portfolio webite displaying my skills as a software engineer.",
+      description:
+        "A portfolio webite displaying my skills as a software engineer.",
       category: "Web",
       date: "2025",
       skills: [
@@ -75,7 +76,7 @@ const Projects: React.FC = () => {
       skills: [
         { name: "Python", percentage: "90%", color: "#a3dbef" },
         { name: "PHP", percentage: "85%", color: "#ffb6c1" },
-        { name: "SQL", percentage: "80%", color: "#b39eb5" }, 
+        { name: "SQL", percentage: "80%", color: "#b39eb5" },
       ],
     },
     {
@@ -140,15 +141,18 @@ const Projects: React.FC = () => {
     },
   ];
 
-  const filteredProjects = selectedCategory === "All" ? projects : projects.filter(project => project.category === selectedCategory);
+  const filteredProjects =
+    selectedCategory === "All"
+      ? projects
+      : projects.filter((project) => project.category === selectedCategory);
 
   useEffect(() => {
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
+    const projectCards = document.querySelectorAll(".project-card");
+    projectCards.forEach((card) => {
       const htmlCard = card as HTMLElement;
-      htmlCard.classList.remove('animate-move');
+      htmlCard.classList.remove("animate-move");
       void htmlCard.offsetWidth;
-      htmlCard.classList.add('animate-move');
+      htmlCard.classList.add("animate-move");
     });
   }, [selectedCategory]);
 
@@ -171,59 +175,67 @@ const Projects: React.FC = () => {
           Click a project card to see behind the scenes.
         </p>
         <div className="flex justify-center space-x-4 mt-4">
-          {["All", "Web", "App", "Game"].map(category => (
+          {["All", "Web", "App", "Game"].map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded transition-transform duration-300 transform hover:scale-95 ${theme === "dark" ? (selectedCategory === category ? "bg-[#df8b38] text-[#ffffff]" : "bg-[#30414d] text-[#ffffff]") : (selectedCategory === category ? "bg-[#8cc1c7] text-[#000000]" : "bg-[#e0f7fa] text-[#000000]")}`}
+              className={`px-4 py-2 rounded transition-transform duration-300 transform hover:scale-95 ${theme === "dark" ? (selectedCategory === category ? "bg-[#df8b38] text-[#ffffff]" : "bg-[#30414d] text-[#ffffff]") : selectedCategory === category ? "bg-[#8cc1c7] text-[#000000]" : "bg-[#e0f7fa] text-[#000000]"}`}
             >
               {category}
             </button>
           ))}
         </div>
-        <div className="grid gap-4 mt-12 w-full px-2 md:px-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))"}}>
-  {filteredProjects.map((project, index) => (
-    <a
-      key={index}
-      href="https://github.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="project-card bg-[#8cc1c7] dark:bg-[#30414d] p-4 rounded-lg shadow-md flex flex-col transform transition-transform duration-300 hover:scale-95"
-    >
-      <div className="flex justify-between items-center mb-2">
-        <h3 className="text-2xl md:text-xl sm:text-lg font-bold text-[#000] dark:text-[#ff9934] font-rubik">
-          {project.title}
-        </h3>
-        <h3 className="text-2xl md:text-xl sm:text-lg font-bold text-[#000] dark:text-[#ff9934] font-rubik">
-          {project.date}
-        </h3>
-      </div>
-      <img
-        src={project.image}
-        alt={project.title}
-        className="w-full h-32 object-cover rounded-md mb-4"
-      />
-      <p className="text-[#000000] dark:text-[#ffffff] mb-4">
-        {project.description}
-      </p>
-      <div className="space-y-2">
-        {project.skills.map((skill, skillIndex) => (
-          <div key={skillIndex} className="relative">
-            <span className="text-sm font-medium text-gray-900 dark:text-white">
-              {skill.name} - {skill.percentage}
-            </span>
-            <div className="w-full bg-gray-200 dark:bg-[#6f6e6e] rounded-full h-2.5 relative">
-              <div
-                className="h-2.5 rounded-full"
-                style={{ width: skill.percentage, backgroundColor: skill.color }}
-              ></div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </a>
-  ))}
-</div>
+        <div
+          className="grid gap-4 mt-12 w-full px-2 md:px-5"
+          style={{
+            gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
+          }}
+        >
+          {filteredProjects.map((project, index) => (
+            <a
+              key={index}
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-card bg-[#8cc1c7] dark:bg-[#30414d] p-4 rounded-lg shadow-md flex flex-col transform transition-transform duration-300 hover:scale-95"
+            >
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="text-2xl md:text-xl sm:text-lg font-bold text-[#000] dark:text-[#ff9934] font-rubik">
+                  {project.title}
+                </h3>
+                <h3 className="text-2xl md:text-xl sm:text-lg font-bold text-[#000] dark:text-[#ff9934] font-rubik">
+                  {project.date}
+                </h3>
+              </div>
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-32 object-cover rounded-md mb-4"
+              />
+              <p className="text-[#000000] dark:text-[#ffffff] mb-4">
+                {project.description}
+              </p>
+              <div className="space-y-2">
+                {project.skills.map((skill, skillIndex) => (
+                  <div key={skillIndex} className="relative">
+                    <span className="text-sm font-medium text-gray-900 dark:text-white">
+                      {skill.name} - {skill.percentage}
+                    </span>
+                    <div className="w-full bg-gray-200 dark:bg-[#6f6e6e] rounded-full h-2.5 relative">
+                      <div
+                        className="h-2.5 rounded-full"
+                        style={{
+                          width: skill.percentage,
+                          backgroundColor: skill.color,
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );

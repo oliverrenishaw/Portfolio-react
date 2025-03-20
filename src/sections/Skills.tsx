@@ -1,26 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTheme } from "../themeToggle";
 
-import htmlIcon from '../assets/html.png';
-import cssIcon from '../assets/css.png';
-import javascriptIcon from '../assets/js.png';
-import typescriptIcon from '../assets/typescript.png';
-import reactIcon from '../assets/react.png';
-import gitIcon from '../assets/git.png';
-import nodeIcon from '../assets/nodejs.png';
-import tailwindcssIcon from '../assets/Tailwind_CSS_Logo.png';
-import bootstrapIcon from '../assets/bootstrap.png';
-import viteIcon from '../assets/vite.png';
-import phpIcon from '../assets/php.png';
-import figmaIcon from '../assets/figma.png';
-import csIcon from '../assets/cs.png';
-import vercelIcon from '../assets/vercel.png';
-import azureIcon from '../assets/azure-devops.png';
-import vitestIcon from '../assets/vitest.png';
-import postmanIcon from '../assets/postman.png';
-import nextjsIcon from '../assets/nextjs.png';
-import consciaIcon from '../assets/conscia.png';
-import confluenceIcon from '../assets/confluence.png';
+import htmlIcon from "../assets/html.png";
+import cssIcon from "../assets/css.png";
+import javascriptIcon from "../assets/js.png";
+import typescriptIcon from "../assets/typescript.png";
+import reactIcon from "../assets/react.png";
+import gitIcon from "../assets/git.png";
+import nodeIcon from "../assets/nodejs.png";
+import tailwindcssIcon from "../assets/Tailwind_CSS_Logo.png";
+import bootstrapIcon from "../assets/bootstrap.png";
+import viteIcon from "../assets/vite.png";
+import phpIcon from "../assets/php.png";
+import figmaIcon from "../assets/figma.png";
+import csIcon from "../assets/cs.png";
+import vercelIcon from "../assets/vercel.png";
+import azureIcon from "../assets/azure-devops.png";
+import vitestIcon from "../assets/vitest.png";
+import postmanIcon from "../assets/postman.png";
+import nextjsIcon from "../assets/nextjs.png";
+import consciaIcon from "../assets/conscia.png";
+import confluenceIcon from "../assets/confluence.png";
 
 const skills = [
   { src: htmlIcon, skill: "HTML" },
@@ -55,10 +55,10 @@ const Skills: React.FC = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -105,30 +105,34 @@ const Skills: React.FC = () => {
               marginLeft: `${
                 windowWidth >= 1024
                   ? Math.floor(index / 5) % 2 === 1
-                    ? '-4.5rem'
-                    : '0'
+                    ? "-4.5rem"
+                    : "0"
                   : windowWidth >= 768 && windowWidth < 1024
-                  ? Math.floor(index / 3) % 2 === 1
-                    ? '-4.5rem'
-                    : '0'
-                  : windowWidth < 768
-                  ? Math.floor(index / 2) % 2 === 1
-                    ? '-4rem'
-                    : '0'
-                  : '0'
+                    ? Math.floor(index / 3) % 2 === 1
+                      ? "-4.5rem"
+                      : "0"
+                    : windowWidth < 768
+                      ? Math.floor(index / 2) % 2 === 1
+                        ? "-4rem"
+                        : "0"
+                      : "0"
               }`,
               marginTop: `${
                 windowWidth >= 1024 && index >= 5
-                  ? '-1rem'
+                  ? "-1rem"
                   : windowWidth >= 768 && windowWidth < 1024 && index >= 3
-                  ? '-1rem'
-                  : windowWidth < 768 && index >= 2
-                  ? '-1rem'
-                  : '0'
+                    ? "-1rem"
+                    : windowWidth < 768 && index >= 2
+                      ? "-1rem"
+                      : "0"
               }`,
             }}
           >
-            <img src={src} alt={skill} className="w-18 h-14 absolute inset-0 m-auto" />
+            <img
+              src={src}
+              alt={skill}
+              className="w-18 h-14 absolute inset-0 m-auto"
+            />
             <div className="absolute top-0 bottom-0 left-0 right-0 h-full w-full opacity-0 transition-opacity duration-500 bg-[#30414d] hover:opacity-90 flex items-center justify-center">
               <div className="text-white text-sm text-center">{skill}</div>
             </div>

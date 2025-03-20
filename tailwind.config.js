@@ -37,8 +37,9 @@ export default {
   plugins: [
     function ({ addUtilities }) {
       addUtilities({
-        '.clip-hexagon': {
-          clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+        ".clip-hexagon": {
+          clipPath:
+            "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
         },
       });
     },

@@ -42,10 +42,12 @@ const About: React.FC = () => {
         <p
           className={`mt-8 text-lg ${theme === "dark" ? "text-[#ffffff]" : "text-[#000000]"}`}
         >
-          I'm a Computer Science graduate from the University of Sussex, working as an Analyst Programmer 
-          for an engineering & manufacturing company. I have a strong passion for designing websites and 
-          exploring new technologies. I enjoy creating visually appealing and user-friendly interfaces, 
-          and I'm always eager to learn and experiment with new tools and techniques to enhance my skills.
+          I'm a Computer Science graduate from the University of Sussex, working
+          as an Analyst Programmer for an engineering & manufacturing company. I
+          have a strong passion for designing websites and exploring new
+          technologies. I enjoy creating visually appealing and user-friendly
+          interfaces, and I'm always eager to learn and experiment with new
+          tools and techniques to enhance my skills.
         </p>
         <div className="flex flex-col md:flex-row mt-12 w-full">
           <div className="md:w-1/2">
@@ -57,10 +59,12 @@ const About: React.FC = () => {
             <p
               className={`mt-2 text-lg ${theme === "dark" ? "text-[#ffffff]" : "text-[#000000]"}`}
             >
-              As an analyst programmer, I focus on front end web development, working with React, 
-              JavaScript, TypeScript, and Tailwind CSS. I collaborate with developers and testers 
-              to ensure a seamless user experience and meet design requirements. I stay updated with 
-              industry trends to improve our development processes and deliver high-quality solutions.
+              As an analyst programmer, I focus on front end web development,
+              working with React, JavaScript, TypeScript, and Tailwind CSS. I
+              collaborate with developers and testers to ensure a seamless user
+              experience and meet design requirements. I stay updated with
+              industry trends to improve our development processes and deliver
+              high-quality solutions.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
               <div>
@@ -122,7 +126,9 @@ const About: React.FC = () => {
                 className="w-auto h-auto object-cover"
               />
               <div className="absolute top-0 bottom-0 left-0 right-0 h-full w-auto opacity-0 transition-opacity duration-500 bg-[#8ba36a] hover:opacity-90 flex items-center justify-center">
-                <div className="text-white text-lg text-center">Fun fact: I have a twin</div>
+                <div className="text-white text-lg text-center">
+                  Fun fact: I have a twin
+                </div>
               </div>
             </div>
           </div>
