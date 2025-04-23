@@ -1,13 +1,47 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTheme } from "../themeToggle";
 
+interface Repo {
+  id: number;
+  name: string;
+  created_at: string;
+}
+
+interface Project {
+  title: string;
+  date: string;
+  description: string;
+  skills: Skill[];
+}
+
+interface Skill {
+  name: string;
+  percentage: string;
+  color: string;
+}
+
 const Projects: React.FC = () => {
   const { theme } = useTheme();
+  const isDarkMode = theme === "dark";
   const contentRef = useRef<HTMLDivElement>(null);
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [projects, setProjects] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [projects, setProjects] = useState<Project[]>([]);
   const API_KEY = import.meta.env.VITE_API_KEY;
-  
+
+  const getRandomColor = (isDarkMode: boolean): string => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      if (isDarkMode) {
+        // Generate lighter colors for dark mode
+        color += letters[Math.floor(Math.random() * 6) + 10]; // Picks letters from A to F
+      } else {
+        // Generate darker colors for light mode
+        color += letters[Math.floor(Math.random() * 10)]; // Picks letters from 0 to 9
+      }
+    }
+    return color;
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -18,11 +52,9 @@ const Projects: React.FC = () => {
       },
       { threshold: 0.1 },
     );
-
     if (contentRef.current) {
       observer.observe(contentRef.current);
     }
-
     return () => {
       if (contentRef.current) {
         observer.unobserve(contentRef.current);
@@ -34,16 +66,14 @@ const Projects: React.FC = () => {
     const fetchProjects = async () => {
       try {
         console.log('Connecting to GitHub API...');
-
         const response = await fetch('https://api.github.com/users/oliverwarner121/repos', {
           headers: {
             Authorization: `token ${API_KEY}`,
           },
         });
-        const repos = await response.json();
-
+        const repos: Repo[] = await response.json();
         const projectsData = await Promise.all(
-          repos.map(async (repo) => {
+          repos.map(async (repo: Repo) => {
             const readmeResponse = await fetch(`https://api.github.com/repos/oliverwarner121/${repo.name}/readme`, {
               headers: {
                 Authorization: `token ${API_KEY}`,
@@ -51,21 +81,18 @@ const Projects: React.FC = () => {
               },
             });
             const readme = await readmeResponse.text();
-
             const languagesResponse = await fetch(`https://api.github.com/repos/oliverwarner121/${repo.name}/languages`, {
               headers: {
                 Authorization: `token ${API_KEY}`,
               },
             });
             const languages = await languagesResponse.json();
-
             const totalBytes = Object.values(languages).reduce((acc, bytes) => acc + bytes, 0);
-            const skills = Object.entries(languages).map(([name, bytes]) => ({
+            const skills: Skill[] = Object.entries(languages).map(([name, bytes]) => ({
               name,
               percentage: `${((bytes / totalBytes) * 100).toFixed(2)}%`,
-              color: getRandomColor(), // Function to generate random colors
+              color: getRandomColor(isDarkMode), // Pass the theme mode to the function
             }));
-
             return {
               title: repo.name,
               date: new Date(repo.created_at).toLocaleDateString(),
@@ -75,29 +102,17 @@ const Projects: React.FC = () => {
           })
         );
         console.log('Fetched projects successfully!');
-
         setProjects(projectsData);
       } catch (error) {
         console.error('Error fetching projects:', error);
       }
     };
-
     fetchProjects();
-  }, []);
+  }, [isDarkMode]); // Re-fetch projects when theme changes
 
-  const getRandomColor = () => {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  };
-
-  const filteredProjects =
-    selectedCategory === "All"
-      ? projects
-      : projects.filter((project) => project.category === selectedCategory);
+  const filteredProjects = selectedCategory === "All"
+    ? projects
+    : projects.filter((project) => project.category === selectedCategory);
 
   useEffect(() => {
     const projectCards = document.querySelectorAll(".project-card");
@@ -170,7 +185,7 @@ const Projects: React.FC = () => {
                     className="h-2.5 rounded-full absolute top-0 left-0"
                     style={{
                       width: skill.percentage,
-                      backgroundColor: skill.color,
+                      backgroundColor: getRandomColor(isDarkMode), // Update color based on theme
                       left: `${project.skills.slice(0, skillIndex).reduce((acc, curr) => acc + parseFloat(curr.percentage), 0)}%`,
                     }}
                   ></div>
