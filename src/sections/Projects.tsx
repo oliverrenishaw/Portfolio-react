@@ -38,10 +38,10 @@ const Projects: React.FC = () => {
     for (let i = 0; i < 6; i++) {
       if (isDarkMode) {
         // Generate lighter colors for dark mode
-        color += letters[Math.floor(Math.random() * 6) + 10]; // Picks letters from A to F
+        color += letters[Math.floor(Math.random() * 5) + 10]; // Picks letters from A to F
       } else {
         // Generate darker colors for light mode
-        color += letters[Math.floor(Math.random() * 10)]; // Picks letters from 0 to 9
+        color += letters[Math.floor(Math.random() * 5)]; // Picks letters from 0 to 9
       }
     }
     return color;
@@ -85,6 +85,7 @@ const Projects: React.FC = () => {
               },
             });
             const readme = await readmeResponse.text();
+            const firstLine = readme.split('\n')[0];
             const languagesResponse = await fetch(`https://api.github.com/repos/oliverwarner121/${repo.name}/languages`, {
               headers: {
                 Authorization: `token ${API_KEY}`,
@@ -99,8 +100,8 @@ const Projects: React.FC = () => {
             }));
             return {
               title: repo.name,
-              date: new Date(repo.created_at).toLocaleDateString(),
-              description: readme,
+              date: new Date(repo.created_at).toLocaleDateString('en-UK', { month: 'long', year: 'numeric' }),
+              description: firstLine,
               skills,
               category: repo.topics[0],
               url: repo.html_url,
@@ -185,7 +186,7 @@ const Projects: React.FC = () => {
               <p className="text-[#000000] dark:text-[#ffffff] mb-4">
                 {project.description}
               </p>
-              <div className="relative w-full bg-gray-200 dark:bg-[#6f6e6e] rounded-full h-2.5">
+              <div className="relative w-full bg-gray-200 dark:bg-[#6f6e6e] h-2.5">
                 {project.skills.map((skill, skillIndex) => (
                   <div
                     key={skillIndex}
