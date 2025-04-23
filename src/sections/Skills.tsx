@@ -24,6 +24,8 @@ import confluenceIcon from "../assets/confluence.png";
 import jestIcon from "../assets/jest.png";
 import vscodeIcon from "../assets/vscode.png";
 import githubIcon from "../assets/github-black.png";
+import pythonIcon from "../assets/python.png";
+import javaIcon from "../assets/java.png";
 
 const skills = [
   { src: htmlIcon, skill: "HTML" },
@@ -53,6 +55,8 @@ const skills = [
   { src: confluenceIcon, skill: "Confluence" },
   { src: vscodeIcon, skill: "Visual Studio Code" },
   { src: azureIcon, skill: "Azure" },
+  { src: pythonIcon, skill: "Python" },
+  { src: javaIcon, skill: "Java" },
 ];
 
 const Skills: React.FC = () => {
