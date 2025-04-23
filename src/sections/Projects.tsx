@@ -1,10 +1,51 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTheme } from "../themeToggle";
 
+interface Repo {
+  id: number;
+  name: string;
+  created_at: string;
+  html_url: string;
+  topics: string[];
+}
+
+interface Project {
+  title: string;
+  date: string;
+  description: string;
+  skills: Skill[];
+  category?: string;
+  url: string;
+}
+
+interface Skill {
+  name: string;
+  percentage: string;
+  color: string;
+}
+
 const Projects: React.FC = () => {
   const { theme } = useTheme();
+  const isDarkMode = theme === "dark";
   const contentRef = useRef<HTMLDivElement>(null);
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [projects, setProjects] = useState<Project[]>([]);
+  const API_KEY = import.meta.env.VITE_API_KEY;
+
+  const getRandomColor = (isDarkMode: boolean): string => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      if (isDarkMode) {
+        // Generate lighter colors for dark mode
+        color += letters[Math.floor(Math.random() * 5) + 10]; // Picks letters from A to F
+      } else {
+        // Generate darker colors for light mode
+        color += letters[Math.floor(Math.random() * 5)]; // Picks letters from 0 to 9
+      }
+    }
+    return color;
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -15,11 +56,9 @@ const Projects: React.FC = () => {
       },
       { threshold: 0.1 },
     );
-
     if (contentRef.current) {
       observer.observe(contentRef.current);
     }
-
     return () => {
       if (contentRef.current) {
         observer.unobserve(contentRef.current);
@@ -27,124 +66,60 @@ const Projects: React.FC = () => {
     };
   }, []);
 
-  const projects = [
-    {
-      title: "Portfolio Website",
-      image: "src/assets/portfolio-website.png",
-      description:
-        "A portfolio webite displaying my skills as a software engineer.",
-      category: "Web",
-      date: "2025",
-      skills: [
-        { name: "HTML", percentage: "7.5%", color: "#ff6961" },
-        { name: "CSS", percentage: "38.2%", color: "#ffb347" },
-        { name: "JavaScript", percentage: "27.8%", color: "#ffb07c" },
-        { name: "TypeScript", percentage: "26.5%", color: "#77dd77" },
-      ],
-    },
-    {
-      title: "E-commerce Website",
-      image: "src/assets/ecommerce.png",
-      description:
-        "An e-commerce website with product listings, shopping cart, and checkout functionality.",
-      category: "Web",
-      date: "2024",
-      skills: [
-        { name: "HTML", percentage: "85%", color: "#ff6961" },
-        { name: "CSS", percentage: "75%", color: "#ffb347" },
-        { name: "JavaScript", percentage: "95%", color: "#ffb07c" },
-      ],
-    },
-    {
-      title: "Calculator App",
-      image: "src/assets/calculator.png",
-      description: "A simple calculator app with basic arithmetic functions.",
-      category: "App",
-      date: "2021",
-      skills: [
-        { name: "PHP", percentage: "80%", color: "#ffb6c1" },
-        { name: "CSS", percentage: "70%", color: "#ffb347" },
-        { name: "C#", percentage: "90%", color: "#ff6961" },
-      ],
-    },
-    {
-      title: "AI Chatbot",
-      image: "src/assets/chatbot.jpg",
-      description: "An AI-powered chatbot for customer service.",
-      category: "Web",
-      date: "2025",
-      skills: [
-        { name: "Python", percentage: "90%", color: "#a3dbef" },
-        { name: "PHP", percentage: "85%", color: "#ffb6c1" },
-        { name: "SQL", percentage: "80%", color: "#b39eb5" },
-      ],
-    },
-    {
-      title: "Catan Game",
-      image: "src/assets/catan.jpg",
-      description: "A digital version of the popular board game Catan.",
-      category: "Game",
-      date: "2025",
-      skills: [
-        { name: "Python", percentage: "75%", color: "#a3dbef" },
-        { name: "SQL", percentage: "65%", color: "#b39eb5" },
-        { name: "JavaScript", percentage: "85%", color: "#ffb07c" },
-      ],
-    },
-    {
-      title: "Racing Game",
-      image: "src/assets/racing.jpg",
-      description: "A 3D racing game with multiple tracks and cars.",
-      category: "Game",
-      date: "2022",
-      skills: [
-        { name: "C#", percentage: "80%", color: "#ff6961" },
-        { name: "SQL", percentage: "85%", color: "#b39eb5" },
-        { name: "Java", percentage: "70%", color: "#779ecb" },
-      ],
-    },
-    {
-      title: "Machine Learning Recommendation System",
-      image: "src/assets/book.png",
-      description: "A recommendation system using machine learning algorithms.",
-      category: "App",
-      date: "2024",
-      skills: [
-        { name: "Python", percentage: "90%", color: "#a3dbef" },
-        { name: "SQL", percentage: "95%", color: "#b39eb5" },
-      ],
-    },
-    {
-      title: "Cybersecurity Project",
-      image: "src/assets/security.jpg",
-      description: "A project focused on enhancing cybersecurity measures.",
-      category: "Web",
-      date: "2023",
-      skills: [
-        { name: "Python", percentage: "80%", color: "#a3dbef" },
-        { name: "Java", percentage: "85%", color: "#779ecb" },
-        { name: "PHP", percentage: "75%", color: "#ffb6c1" },
-      ],
-    },
-    {
-      title: "Weather App",
-      image: "src/assets/weather.png",
-      description:
-        "A weather app that provides current weather information and forecasts.",
-      category: "App",
-      date: "2025",
-      skills: [
-        { name: "HTML", percentage: "80%", color: "#ff6961" },
-        { name: "CSS", percentage: "70%", color: "#ffb347" },
-        { name: "JavaScript", percentage: "90%", color: "#ffb07c" },
-      ],
-    },
-  ];
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        console.log('Connecting to GitHub API...');
+        const response = await fetch('https://api.github.com/users/oliverwarner121/repos', {
+          headers: {
+            Authorization: `token ${API_KEY}`,
+          },
+        });
+        const repos: Repo[] = await response.json();
+        const projectsData = await Promise.all(
+          repos.map(async (repo: Repo) => {
+            const readmeResponse = await fetch(`https://api.github.com/repos/oliverwarner121/${repo.name}/readme`, {
+              headers: {
+                Authorization: `token ${API_KEY}`,
+                Accept: 'application/vnd.github.v3.raw',
+              },
+            });
+            const readme = await readmeResponse.text();
+            const firstLine = readme.split('\n')[0];
+            const languagesResponse = await fetch(`https://api.github.com/repos/oliverwarner121/${repo.name}/languages`, {
+              headers: {
+                Authorization: `token ${API_KEY}`,
+              },
+            });
+            const languages = await languagesResponse.json();
+            const totalBytes = Object.values(languages).reduce((acc, bytes) => acc + bytes, 0);
+            const skills: Skill[] = Object.entries(languages).map(([name, bytes]) => ({
+              name,
+              percentage: `${((bytes / totalBytes) * 100).toFixed(2)}%`,
+              color: getRandomColor(isDarkMode), // Pass the theme mode to the function
+            }));
+            return {
+              title: repo.name,
+              date: new Date(repo.created_at).toLocaleDateString('en-UK', { month: 'long', year: 'numeric' }),
+              description: firstLine,
+              skills,
+              category: repo.topics[0],
+              url: repo.html_url,
+            };
+          })
+        );
+        console.log('Fetched projects successfully!');
+        setProjects(projectsData);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+      }
+    };
+    fetchProjects();
+  }, [isDarkMode]); // Re-fetch projects when theme changes
 
-  const filteredProjects =
-    selectedCategory === "All"
-      ? projects
-      : projects.filter((project) => project.category === selectedCategory);
+  const filteredProjects = selectedCategory === "all"
+    ? projects
+    : projects.filter((project) => project.category === selectedCategory);
 
   useEffect(() => {
     const projectCards = document.querySelectorAll(".project-card");
@@ -175,7 +150,7 @@ const Projects: React.FC = () => {
           Click a project card to see behind the scenes.
         </p>
         <div className="flex justify-center space-x-4 mt-4">
-          {["All", "Web", "App", "Game"].map((category) => (
+          {["all", "web", "app", "game"].map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
@@ -189,12 +164,13 @@ const Projects: React.FC = () => {
           className="grid gap-4 mt-12 w-full px-2 md:px-5"
           style={{
             gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
+            justifyContent: "center",
           }}
         >
           {filteredProjects.map((project, index) => (
             <a
               key={index}
-              href="https://github.com/"
+              href={project.url}
               target="_blank"
               rel="noopener noreferrer"
               className="project-card bg-[#8cc1c7] dark:bg-[#30414d] p-4 rounded-lg shadow-md flex flex-col transform transition-transform duration-300 hover:scale-95"
@@ -207,29 +183,28 @@ const Projects: React.FC = () => {
                   {project.date}
                 </h3>
               </div>
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-32 object-cover rounded-md mb-4"
-              />
               <p className="text-[#000000] dark:text-[#ffffff] mb-4">
                 {project.description}
               </p>
-              <div className="space-y-2">
+              <div className="relative w-full bg-gray-200 dark:bg-[#6f6e6e] h-2.5">
+                {project.skills.map((skill, skillIndex) => (
+                  <div
+                    key={skillIndex}
+                    className="h-2.5 absolute top-0"
+                    style={{
+                      width: skill.percentage,
+                      backgroundColor: getRandomColor(isDarkMode),
+                      left: `${project.skills.slice(0, skillIndex).reduce((acc, curr) => acc + parseFloat(curr.percentage), 0)}%`,
+                    }}
+                  ></div>
+                ))}
+              </div>
+              <div className="flex justify-between mt-2">
                 {project.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className="relative">
                     <span className="text-sm font-medium text-gray-900 dark:text-white">
-                      {skill.name} - {skill.percentage}
+                      {skill.name} {skill.percentage}
                     </span>
-                    <div className="w-full bg-gray-200 dark:bg-[#6f6e6e] rounded-full h-2.5 relative">
-                      <div
-                        className="h-2.5 rounded-full"
-                        style={{
-                          width: skill.percentage,
-                          backgroundColor: skill.color,
-                        }}
-                      ></div>
-                    </div>
                   </div>
                 ))}
               </div>
