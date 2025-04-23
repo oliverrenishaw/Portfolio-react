@@ -12,6 +12,7 @@ interface Project {
   date: string;
   description: string;
   skills: Skill[];
+  category?: string;
 }
 
 interface Skill {
@@ -185,7 +186,7 @@ const Projects: React.FC = () => {
                     className="h-2.5 rounded-full absolute top-0 left-0"
                     style={{
                       width: skill.percentage,
-                      backgroundColor: getRandomColor(isDarkMode), // Update color based on theme
+                      backgroundColor: getRandomColor(isDarkMode),
                       left: `${project.skills.slice(0, skillIndex).reduce((acc, curr) => acc + parseFloat(curr.percentage), 0)}%`,
                     }}
                   ></div>
