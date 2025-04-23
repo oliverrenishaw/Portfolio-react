@@ -5,6 +5,9 @@ const Projects: React.FC = () => {
   const { theme } = useTheme();
   const contentRef = useRef<HTMLDivElement>(null);
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [projects, setProjects] = useState([]);
+  const API_KEY = import.meta.env.VITE_API_KEY;
+  
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,119 +30,69 @@ const Projects: React.FC = () => {
     };
   }, []);
 
-  const projects = [
-    {
-      title: "Portfolio Website",
-      image: "src/assets/portfolio-website.png",
-      description:
-        "A portfolio webite displaying my skills as a software engineer.",
-      category: "Web",
-      date: "2025",
-      skills: [
-        { name: "HTML", percentage: "7.5%", color: "#ff6961" },
-        { name: "CSS", percentage: "38.2%", color: "#ffb347" },
-        { name: "JavaScript", percentage: "27.8%", color: "#ffb07c" },
-        { name: "TypeScript", percentage: "26.5%", color: "#77dd77" },
-      ],
-    },
-    {
-      title: "E-commerce Website",
-      image: "src/assets/ecommerce.png",
-      description:
-        "An e-commerce website with product listings, shopping cart, and checkout functionality.",
-      category: "Web",
-      date: "2024",
-      skills: [
-        { name: "HTML", percentage: "85%", color: "#ff6961" },
-        { name: "CSS", percentage: "75%", color: "#ffb347" },
-        { name: "JavaScript", percentage: "95%", color: "#ffb07c" },
-      ],
-    },
-    {
-      title: "Calculator App",
-      image: "src/assets/calculator.png",
-      description: "A simple calculator app with basic arithmetic functions.",
-      category: "App",
-      date: "2021",
-      skills: [
-        { name: "PHP", percentage: "80%", color: "#ffb6c1" },
-        { name: "CSS", percentage: "70%", color: "#ffb347" },
-        { name: "C#", percentage: "90%", color: "#ff6961" },
-      ],
-    },
-    {
-      title: "AI Chatbot",
-      image: "src/assets/chatbot.jpg",
-      description: "An AI-powered chatbot for customer service.",
-      category: "Web",
-      date: "2025",
-      skills: [
-        { name: "Python", percentage: "90%", color: "#a3dbef" },
-        { name: "PHP", percentage: "85%", color: "#ffb6c1" },
-        { name: "SQL", percentage: "80%", color: "#b39eb5" },
-      ],
-    },
-    {
-      title: "Catan Game",
-      image: "src/assets/catan.jpg",
-      description: "A digital version of the popular board game Catan.",
-      category: "Game",
-      date: "2025",
-      skills: [
-        { name: "Python", percentage: "75%", color: "#a3dbef" },
-        { name: "SQL", percentage: "65%", color: "#b39eb5" },
-        { name: "JavaScript", percentage: "85%", color: "#ffb07c" },
-      ],
-    },
-    {
-      title: "Racing Game",
-      image: "src/assets/racing.jpg",
-      description: "A 3D racing game with multiple tracks and cars.",
-      category: "Game",
-      date: "2022",
-      skills: [
-        { name: "C#", percentage: "80%", color: "#ff6961" },
-        { name: "SQL", percentage: "85%", color: "#b39eb5" },
-        { name: "Java", percentage: "70%", color: "#779ecb" },
-      ],
-    },
-    {
-      title: "Machine Learning Recommendation System",
-      image: "src/assets/book.png",
-      description: "A recommendation system using machine learning algorithms.",
-      category: "App",
-      date: "2024",
-      skills: [
-        { name: "Python", percentage: "90%", color: "#a3dbef" },
-        { name: "SQL", percentage: "95%", color: "#b39eb5" },
-      ],
-    },
-    {
-      title: "Cybersecurity Project",
-      image: "src/assets/security.jpg",
-      description: "A project focused on enhancing cybersecurity measures.",
-      category: "Web",
-      date: "2023",
-      skills: [
-        { name: "Python", percentage: "80%", color: "#a3dbef" },
-        { name: "Java", percentage: "85%", color: "#779ecb" },
-        { name: "PHP", percentage: "75%", color: "#ffb6c1" },
-      ],
-    },
-    {
-      title: "Weather App",
-      image: "src/assets/weather.png",
-      description:
-        "A weather app that provides current weather information and forecasts.",
-      category: "App",
-      date: "2025",
-      skills: [
-        { name: "HTML", percentage: "80%", color: "#ff6961" },
-        { name: "CSS", percentage: "70%", color: "#ffb347" },
-        { name: "JavaScript", percentage: "90%", color: "#ffb07c" },
-      ],
-    },
-  ];
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        console.log('Connecting to GitHub API...');
+
+        const response = await fetch('https://api.github.com/users/oliverwarner121/repos', {
+          headers: {
+            Authorization: `token ${API_KEY}`,
+          },
+        });
+        const repos = await response.json();
+
+        const projectsData = await Promise.all(
+          repos.map(async (repo) => {
+            const readmeResponse = await fetch(`https://api.github.com/repos/oliverwarner121/${repo.name}/readme`, {
+              headers: {
+                Authorization: `token ${API_KEY}`,
+                Accept: 'application/vnd.github.v3.raw',
+              },
+            });
+            const readme = await readmeResponse.text();
+
+            const languagesResponse = await fetch(`https://api.github.com/repos/oliverwarner121/${repo.name}/languages`, {
+              headers: {
+                Authorization: `token ${API_KEY}`,
+              },
+            });
+            const languages = await languagesResponse.json();
+
+            const totalBytes = Object.values(languages).reduce((acc, bytes) => acc + bytes, 0);
+            const skills = Object.entries(languages).map(([name, bytes]) => ({
+              name,
+              percentage: `${((bytes / totalBytes) * 100).toFixed(2)}%`,
+              color: getRandomColor(), // Function to generate random colors
+            }));
+
+            return {
+              title: repo.name,
+              date: new Date(repo.created_at).toLocaleDateString(),
+              description: readme,
+              skills,
+            };
+          })
+        );
+        console.log('Fetched projects successfully!');
+
+        setProjects(projectsData);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  const getRandomColor = () => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
 
   const filteredProjects =
     selectedCategory === "All"
@@ -194,7 +147,7 @@ const Projects: React.FC = () => {
           {filteredProjects.map((project, index) => (
             <a
               key={index}
-              href="https://github.com/"
+              href={`https://github.com/YOUR_GITHUB_USERNAME/${project.title}`}
               target="_blank"
               rel="noopener noreferrer"
               className="project-card bg-[#8cc1c7] dark:bg-[#30414d] p-4 rounded-lg shadow-md flex flex-col transform transition-transform duration-300 hover:scale-95"
@@ -207,29 +160,28 @@ const Projects: React.FC = () => {
                   {project.date}
                 </h3>
               </div>
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-32 object-cover rounded-md mb-4"
-              />
               <p className="text-[#000000] dark:text-[#ffffff] mb-4">
                 {project.description}
               </p>
-              <div className="space-y-2">
+              <div className="relative w-full bg-gray-200 dark:bg-[#6f6e6e] rounded-full h-2.5">
+                {project.skills.map((skill, skillIndex) => (
+                  <div
+                    key={skillIndex}
+                    className="h-2.5 rounded-full absolute top-0 left-0"
+                    style={{
+                      width: skill.percentage,
+                      backgroundColor: skill.color,
+                      left: `${project.skills.slice(0, skillIndex).reduce((acc, curr) => acc + parseFloat(curr.percentage), 0)}%`,
+                    }}
+                  ></div>
+                ))}
+              </div>
+              <div className="flex justify-between mt-2">
                 {project.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className="relative">
                     <span className="text-sm font-medium text-gray-900 dark:text-white">
                       {skill.name} - {skill.percentage}
                     </span>
-                    <div className="w-full bg-gray-200 dark:bg-[#6f6e6e] rounded-full h-2.5 relative">
-                      <div
-                        className="h-2.5 rounded-full"
-                        style={{
-                          width: skill.percentage,
-                          backgroundColor: skill.color,
-                        }}
-                      ></div>
-                    </div>
                   </div>
                 ))}
               </div>
