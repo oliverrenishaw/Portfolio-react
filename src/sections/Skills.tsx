@@ -21,6 +21,9 @@ import postmanIcon from "../assets/postman.png";
 import nextjsIcon from "../assets/nextjs.png";
 import consciaIcon from "../assets/conscia.png";
 import confluenceIcon from "../assets/confluence.png";
+import jestIcon from "../assets/jest.png";
+import vscodeIcon from "../assets/vscode.png";
+import githubIcon from "../assets/github-black.png";
 
 const skills = [
   { src: htmlIcon, skill: "HTML" },
@@ -38,14 +41,18 @@ const skills = [
   { src: bootstrapIcon, skill: "Bootstrap" },
   { src: phpIcon, skill: "PHP" },
   { src: csIcon, skill: "ContentStack" },
-  { src: azureIcon, skill: "Azure" },
+  { src: jestIcon, skill: "Jest" },
   { src: vitestIcon, skill: "Vitest" },
 
   { src: postmanIcon, skill: "Postman" },
   { src: nextjsIcon, skill: "NextJs" },
   { src: vercelIcon, skill: "Vercel" },
+  { src: githubIcon, skill: "Github" },
   { src: consciaIcon, skill: "Conscia" },
+
   { src: confluenceIcon, skill: "Confluence" },
+  { src: vscodeIcon, skill: "Visual Studio Code" },
+  { src: azureIcon, skill: "Azure" },
 ];
 
 const Skills: React.FC = () => {
