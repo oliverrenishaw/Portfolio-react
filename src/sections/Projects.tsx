@@ -5,6 +5,8 @@ interface Repo {
   id: number;
   name: string;
   created_at: string;
+  html_url: string;
+  topics: string[];
 }
 
 interface Project {
@@ -13,6 +15,7 @@ interface Project {
   description: string;
   skills: Skill[];
   category?: string;
+  url: string;
 }
 
 interface Skill {
@@ -25,7 +28,7 @@ const Projects: React.FC = () => {
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
   const contentRef = useRef<HTMLDivElement>(null);
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [projects, setProjects] = useState<Project[]>([]);
   const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -99,6 +102,8 @@ const Projects: React.FC = () => {
               date: new Date(repo.created_at).toLocaleDateString(),
               description: readme,
               skills,
+              category: repo.topics[0],
+              url: repo.html_url,
             };
           })
         );
@@ -111,7 +116,7 @@ const Projects: React.FC = () => {
     fetchProjects();
   }, [isDarkMode]); // Re-fetch projects when theme changes
 
-  const filteredProjects = selectedCategory === "All"
+  const filteredProjects = selectedCategory === "all"
     ? projects
     : projects.filter((project) => project.category === selectedCategory);
 
@@ -144,7 +149,7 @@ const Projects: React.FC = () => {
           Click a project card to see behind the scenes.
         </p>
         <div className="flex justify-center space-x-4 mt-4">
-          {["All", "Web", "App", "Game"].map((category) => (
+          {["all", "web", "app", "game"].map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
@@ -158,12 +163,13 @@ const Projects: React.FC = () => {
           className="grid gap-4 mt-12 w-full px-2 md:px-5"
           style={{
             gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
+            justifyContent: "center",
           }}
         >
           {filteredProjects.map((project, index) => (
             <a
               key={index}
-              href={`https://github.com/YOUR_GITHUB_USERNAME/${project.title}`}
+              href={project.url}
               target="_blank"
               rel="noopener noreferrer"
               className="project-card bg-[#8cc1c7] dark:bg-[#30414d] p-4 rounded-lg shadow-md flex flex-col transform transition-transform duration-300 hover:scale-95"
@@ -183,7 +189,7 @@ const Projects: React.FC = () => {
                 {project.skills.map((skill, skillIndex) => (
                   <div
                     key={skillIndex}
-                    className="h-2.5 rounded-full absolute top-0 left-0"
+                    className="h-2.5 absolute top-0"
                     style={{
                       width: skill.percentage,
                       backgroundColor: getRandomColor(isDarkMode),
