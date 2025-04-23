@@ -1,6 +1,80 @@
 import React, { useEffect, useRef } from "react";
 import { useTheme } from "../themeToggle";
 
+const education = [
+  {
+    name: "BSc Computing for Business & Management Degree",
+    place: "University of Sussex",
+    description: "Obtained a First Class. My dissertation project was 'Book Recommendation Engine'.",
+    date: "2021-2024"
+  },
+  {
+    name: "A-Levels",
+    place: "Wheatley Park Sixth Form",
+    description: "Obtained ABB in Computer Science, Mathematics, Geography. Also obtained a D in AS Sociology.",
+    date: "2019-2021"
+  },
+  {
+    name: "GCSEs",
+    place: "Wheatley Park Secondary School",
+    description: "Obtained 10 GCSEs (Mathematics, English Lit & Lang, Physics, Chemistry, Biology, Computer Science, Geography, French, Music)",
+    date: "2014-2019"
+  }
+];
+
+const leadership = [
+  {
+    name: "Mentoring Buddy Scheme",
+    place: "University of Sussex",
+    description: "I supported 3 international students by connecting them with societies and resources, and organising meetings and tours around Brighton city.",
+    date: "Sep-Dec 2024"
+  },
+  {
+    name: "Finance Society Social Media Manager",
+    place: "University of Sussex",
+    description: "I created weekly social media content for society events and contributed ideas in committee meetings.",
+    date: "Sep-June 2024"
+  }
+];
+
+const experience = [
+  {
+    name: "Graduate Analyst Programmer",
+    company: "Renishaw",
+    place: "Bristol",
+    description: "On a 2-year graduate scheme. I am currently working as a frontend developer on a big project for the company's website.",
+    date: "Sep 2024-Present"
+  },
+  {
+    name: "Web Developer Intern",
+    company: "Unusual Technologies",
+    place: "Brighton",
+    description: "Modernised the company website using WordPress, implemented an AI chatbot, collaborated on innovative solutions, designed a private scheduler on AWS, and developed a Christmas-themed escape room game in Unity.",
+    date: "June-Aug 2023"
+  },
+  {
+    name: "Customer Service Assistant",
+    company: "Sussex Student Union Bar",
+    place: "Brighton",
+    description: "Enhanced multitasking and problem-solving skills in a fast-paced bar, delivering excellent customer service and fostering a welcoming atmosphere.",
+    date: "Sep 2023-Aug 2024"
+  },
+  {
+    name: "Sales Assistant",
+    company: "Next",
+    place: "Oxford",
+    description: "Developed strong work ethic and communication skills, efficiently managed stock, and maintained positive relationships with management and colleagues.",
+    date: "June-Sep 2022"
+  },
+  {
+    name: "Rugby Coach",
+    company: "Chinnor Rugby Club",
+    place: "Thame",
+    description: "Conducted personalised training sessions for children, taught teamwork and acceptable behavior, and ensured health and safety compliance.",
+    date: "June-Sep 2022"
+  }
+];
+
 const Resume: React.FC = () => {
   const { theme } = useTheme();
   const contentRef = useRef<HTMLDivElement>(null);
@@ -73,77 +147,31 @@ const Resume: React.FC = () => {
                 <div
                   className={`absolute left-0 top-0 h-full border-l-2 ${theme === "dark" ? "border-white" : "border-black"}`}
                 ></div>
-                {/* Education*/}
-                <div className="flex items-start mb-4">
-                  <div
-                    className={`timeline-date text-lg font-semibold ${theme === "dark" ? "text-white" : "text-black"} pl-8 mr-4`}
-                  >
-                    2021-2024
-                  </div>
-                  <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
-                  >
-                    <h4
-                      className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
+                {/* Education */}
+                {education.map((item, index) => (
+                  <div key={index} className="flex items-start mb-4">
+                    <div
+                      className={`timeline-date text-lg font-semibold ${theme === "dark" ? "text-white" : "text-black"} pl-8 mr-4`}
                     >
-                      BSc Computing for Business & Management Degree
-                    </h4>
-                    <div className="timeline-location font-semibold italic">
-                      University of Sussex
+                      {item.date}
                     </div>
-                    <div className="timeline-grade">
-                      Obtained a First Class. My dissertation project was
-                      'Recommendation System'.
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-start mb-4">
-                  <div
-                    className={`timeline-date text-lg font-semibold ${theme === "dark" ? "text-white" : "text-black"} pl-8 mr-4`}
-                  >
-                    2019-2021
-                  </div>
-                  <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
-                  >
-                    <h4
-                      className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
+                    <div
+                      className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
                     >
-                      A-Levels
-                    </h4>
-                    <div className="timeline-location font-semibold italic">
-                      Wheatley Park Sixth Form
-                    </div>
-                    <div className="timeline-grade">
-                      Obtained ABB in Computer Science, Mathematics, Geography.
-                      Also obtained a D in AS Sociology.
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-start mb-4">
-                  <div
-                    className={`timeline-date text-lg font-semibold ${theme === "dark" ? "text-white" : "text-black"} pl-8 mr-4`}
-                  >
-                    2014-2019
-                  </div>
-                  <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
-                  >
-                    <h4
-                      className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
-                    >
-                      GCSEs
-                    </h4>
-                    <div className="timeline-location font-semibold italic">
-                      Wheatley Park Secondary School
-                    </div>
-                    <div className="timeline-grade">
-                      Obtained 10 GCSEs (Mathematics, English Lit & Lang,
-                      Physics, Chemistry, Biology, Computer Science, Geography,
-                      French, Music)
+                      <h4
+                        className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
+                      >
+                        {item.name}
+                      </h4>
+                      <div className="timeline-location font-semibold italic">
+                        {item.place}
+                      </div>
+                      <div className="timeline-grade">
+                        {item.description}
+                      </div>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
             <div className="mb-8">
@@ -157,53 +185,30 @@ const Resume: React.FC = () => {
                   className={`absolute left-0 top-0 h-full border-l-2 ${theme === "dark" ? "border-white" : "border-black"}`}
                 ></div>
                 {/* Leadership Positions */}
-                <div className="flex items-start mb-4">
-                  <div
-                    className={`timeline-date text-lg font-semibold ${theme === "dark" ? "text-white" : "text-black"} pl-8 mr-4`}
-                  >
-                    Sep-Dec 2024
-                  </div>
-                  <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
-                  >
-                    <h4
-                      className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
+                {leadership.map((item, index) => (
+                  <div key={index} className="flex items-start mb-4">
+                    <div
+                      className={`timeline-date text-lg font-semibold ${theme === "dark" ? "text-white" : "text-black"} pl-8 mr-4`}
                     >
-                      Mentoring Buddy Scheme
-                    </h4>
-                    <div className="timeline-location font-semibold italic">
-                      University of Sussex
+                      {item.date}
                     </div>
-                    <div className="timeline-content">
-                      I supported 3 international students by connecting them
-                      with societies and resources, and organising meetings and
-                      tours around Brighton city.
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-start mb-4">
-                  <div
-                    className={`timeline-date text-lg font-semibold ${theme === "dark" ? "text-white" : "text-black"} pl-8 mr-4`}
-                  >
-                    Sep-June 2024
-                  </div>
-                  <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
-                  >
-                    <h4
-                      className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
+                    <div
+                      className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
                     >
-                      Finance Society Social Media Manager
-                    </h4>
-                    <div className="timeline-location font-semibold italic">
-                      University of Sussex
-                    </div>
-                    <div className="timeline-content">
-                      I created weekly social media content for society events
-                      and contributed ideas in committee meetings.
+                      <h4
+                        className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
+                      >
+                        {item.name}
+                      </h4>
+                      <div className="timeline-location font-semibold italic">
+                        {item.place}
+                      </div>
+                      <div className="timeline-content">
+                        {item.description}
+                      </div>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -221,142 +226,33 @@ const Resume: React.FC = () => {
                   className={`absolute left-0 top-0 h-full border-l-2 ${theme === "dark" ? "border-white" : "border-black"}`}
                 ></div>
                 {/* Work Experience */}
-                <div className="flex items-start mb-4">
-                  <div
-                    className={`timeline-date text-lg font-semibold ${theme === "dark" ? "text-white" : "text-black"} pl-8 mr-4 md:w-24 md:text-right`}
-                  >
-                    Sep 2024-Present
-                  </div>
-                  <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
-                  >
-                    <h4
-                      className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
+                {experience.map((item, index) => (
+                  <div key={index} className="flex items-start mb-4">
+                    <div
+                      className={`timeline-date text-lg font-semibold ${theme === "dark" ? "text-white" : "text-black"} pl-8 mr-4 md:w-24 md:text-right`}
                     >
-                      Graduate Analyst Programmer
-                    </h4>
-                    <div className="timeline-company font-semibold italic">
-                      Renishaw
+                      {item.date}
                     </div>
-                    <div className="timeline-location font-semibold italic">
-                      Bristol
-                    </div>
-                    <div className="timeline-content">
-                      On a 2-year graduate scheme. I am currently working as a
-                      frontend developer on a big project for the companies
-                      website.
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-start mb-4">
-                  <div
-                    className={`timeline-date text-lg font-semibold ${theme === "dark" ? "text-white" : "text-black"} pl-8 mr-4 md:w-24 md:text-right`}
-                  >
-                    June-Aug 2023
-                  </div>
-                  <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
-                  >
-                    <h4
-                      className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
+                    <div
+                      className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
                     >
-                      Web Developer Intern
-                    </h4>
-                    <div className="timeline-company font-semibold italic">
-                      Unusual Technologies
-                    </div>
-                    <div className="timeline-location font-semibold italic">
-                      Brighton
-                    </div>
-                    <div className="timeline-content">
-                      Modernised the company website using WordPress,
-                      implemented an AI chatbot, collaborated on innovative
-                      solutions, designed a private scheduler on AWS, and
-                      developed a Christmas-themed escape room game in Unity.
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-start mb-4">
-                  <div
-                    className={`timeline-date text-lg font-semibold ${theme === "dark" ? "text-white" : "text-black"} pl-8 mr-4 md:w-24 md:text-right`}
-                  >
-                    Sep 2023-Aug 2024
-                  </div>
-                  <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
-                  >
-                    <h4
-                      className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
-                    >
-                      Customer Service Assistant
-                    </h4>
-                    <div className="timeline-company font-semibold italic">
-                      Sussex Student Union Bar
-                    </div>
-                    <div className="timeline-location font-semibold italic">
-                      Brighton
-                    </div>
-                    <div className="timeline-content">
-                      Enhanced multitasking and problem-solving skills in a
-                      fast-paced bar, delivering excellent customer service and
-                      fostering a welcoming atmosphere.
+                      <h4
+                        className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
+                      >
+                        {item.name}
+                      </h4>
+                      <div className="timeline-company font-semibold italic">
+                        {item.company}
+                      </div>
+                      <div className="timeline-location font-semibold italic">
+                        {item.place}
+                      </div>
+                      <div className="timeline-content">
+                        {item.description}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="flex items-start mb-4">
-                  <div
-                    className={`timeline-date text-lg font-semibold ${theme === "dark" ? "text-white" : "text-black"} pl-8 mr-4 md:w-24 md:text-right`}
-                  >
-                    June-Sep 2022
-                  </div>
-                  <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
-                  >
-                    <h4
-                      className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
-                    >
-                      Sales Assistant
-                    </h4>
-                    <div className="timeline-company font-semibold italic">
-                      Next
-                    </div>
-                    <div className="timeline-location font-semibold italic">
-                      Oxford
-                    </div>
-                    <div className="timeline-content">
-                      Developed strong work ethic and communication skills,
-                      efficiently managed stock, and maintained positive
-                      relationships with management and colleagues.
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-start mb-4">
-                  <div
-                    className={`timeline-date text-lg font-semibold ${theme === "dark" ? "text-white" : "text-black"} pl-8 mr-4 md:w-24 md:text-right`}
-                  >
-                    June-Sep 2022
-                  </div>
-                  <div
-                    className={`timeline-item pl-8 md:pl-12 p-4 rounded-lg ${theme === "dark" ? "bg-[#091218] text-white" : "bg-[#b1bcbe] text-black"}`}
-                  >
-                    <h4
-                      className={`text-xl font-semibold mb-2 ${theme === "dark" ? "text-[#ff9934]" : "text-[#000000]"}`}
-                    >
-                      Rugby Coach
-                    </h4>
-                    <div className="timeline-company font-semibold italic">
-                      Chinnor Rugby Club
-                    </div>
-                    <div className="timeline-location font-semibold italic">
-                      Thame
-                    </div>
-                    <div className="timeline-content">
-                      Conducted personalised training sessions for children,
-                      taught teamwork and acceptable behavior, and ensured
-                      health and safety compliance.
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
