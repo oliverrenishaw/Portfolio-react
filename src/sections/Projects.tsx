@@ -203,7 +203,7 @@ const Projects: React.FC = () => {
                 {project.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className="relative">
                     <span className="text-sm font-medium text-gray-900 dark:text-white">
-                      {skill.name} - {skill.percentage}
+                      {skill.name} {skill.percentage}
                     </span>
                   </div>
                 ))}
