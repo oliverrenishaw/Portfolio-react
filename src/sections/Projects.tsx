@@ -30,7 +30,7 @@ const Projects: React.FC = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [projects, setProjects] = useState<Project[]>([]);
-  const API_KEY = import.meta.env.VITE_API_KEY;
+  const API_KEY = import.meta.env.VITE_API_KEY3;
 
   const getRandomColor = (isDarkMode: boolean): string => {
     const letters = '0123456789ABCDEF';
@@ -38,10 +38,10 @@ const Projects: React.FC = () => {
     for (let i = 0; i < 6; i++) {
       if (isDarkMode) {
         // Generate lighter colors for dark mode
-        color += letters[Math.floor(Math.random() * 5) + 10]; // Picks letters from A to F
+        color += letters[Math.floor(Math.random() * 6) + 10]; // Picks letters from A to F
       } else {
         // Generate darker colors for light mode
-        color += letters[Math.floor(Math.random() * 5)]; // Picks letters from 0 to 9
+        color += letters[Math.floor(Math.random() * 10)]; // Picks letters from 0 to 9
       }
     }
     return color;
